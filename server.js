@@ -7,6 +7,9 @@ const app = express();
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
 
+// Needed for Heroku
+app.use('/static', express.static('build/static'));
+
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
 if (process.env.NODE_ENV == "production") {
