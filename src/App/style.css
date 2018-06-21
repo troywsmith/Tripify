@@ -7,8 +7,12 @@ body {
   overflow: hidden;
 }
 
-Link {
+a {
   color: white;
+}
+
+a:visited {
+  color: rgba(230, 230, 230, 1);
 }
 
 .App {
