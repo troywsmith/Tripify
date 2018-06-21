@@ -9,11 +9,12 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS trips;
 DROP TABLE IF EXISTS activities;
 DROP TABLE IF EXISTS user_trip;
+DROP TABLE IF EXISTS list;
 
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
-  user_name TEXT
+  user_name TEXT NOT NULL
 );
 
 CREATE TABLE trips (
@@ -35,4 +36,7 @@ CREATE TABLE user_trip (
   trip_id INTEGER REFERENCES trips(trip_id)
 );
 
-
+CREATE TABLE list (
+  list_id SERIAL PRIMARY KEY,
+  list_name TEXT NOT NULL
+);
