@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Users from '../Users';
 import Itinerary from '../Itinerary';
+import List from '../List';
+
 
 class Dashboard extends Component {
   // state = { 
@@ -15,9 +17,11 @@ class Dashboard extends Component {
       users: [],
       showItinerary: false,
       showUsers: false,
+      showList: false
     };
     this._onItineraryClick = this._onItineraryClick.bind(this);
     this._onUsersClick = this._onUsersClick.bind(this);
+    this._onListClick = this._onListClick.bind(this);
 
   }
 
@@ -30,12 +34,23 @@ class Dashboard extends Component {
   _onItineraryClick() {
     this.setState({
       showItinerary: true,
-      showUsers: false
+      showUsers: false,
+      showList: false
+
     });
   }
   _onUsersClick() {
     this.setState({
       showUsers: true,
+      showItinerary: false,
+      showList: false
+    });
+  }
+
+  _onListClick() {
+    this.setState({
+      showList: true,
+      showUsers: false,
       showItinerary: false
     });
   }
@@ -50,13 +65,17 @@ class Dashboard extends Component {
                 </div>
             </div>
             <div className="sidebar">
-
+          
               <div className="tabnav">
                 <div className="tab">
                   <button onClick={this._onItineraryClick}>Itinerary</button>
                 </div>
                 <div className="tab">
                   <button onClick={this._onUsersClick}>Users</button>
+                </div>
+
+                <div className="tab">
+                  <button onClick={this._onListClick}>List</button>
                 </div>
               </div>
               
@@ -70,6 +89,12 @@ class Dashboard extends Component {
                 <div id="Users" className="tabcontent">
                   {this.state.showUsers ?
                   <Users users={this.state.users}/> :
+                  null
+                  }
+                </div>
+                <div id="List" className="tabcontent">
+                  {this.state.showList ?
+                  <List list={this.state.users}/> :
                   null
                   }
                 </div>
