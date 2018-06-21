@@ -10,7 +10,7 @@ INSERT INTO users (user_name) VALUES ('Jae');
 INSERT INTO users (user_name) VALUES ('Raul');
 INSERT INTO users (user_name) VALUES ('Troy');
 
-INSERT INTO trips (trip_name) VALUES ('Camping');
+INSERT INTO trips (trip_name, trip_password_digest) VALUES ('Camping', 'password');
 
 INSERT INTO activities (activity_name, user_id, trip_id) VALUES ('Set up camp', 1, 1);
 
