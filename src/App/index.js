@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import "./style.css";
 import Users from '../Users';
+import Dashboard from '../Dashboard';
 
 class App extends Component {
   state = { 
@@ -15,6 +17,7 @@ class App extends Component {
 
   render() {
     return (
+      <Router>
       <div className="App">
        <header className="header">
         <div className="logo-div">
@@ -26,15 +29,35 @@ class App extends Component {
         </div>
         </header>
         <main>
-        <div className="page">
-        </div>
-          <div className="sidebar">
-            <Users users={this.state.users}/>
+            <div className="memo">
+              <h2></h2>
+            </div>
+
+          <div className="joindiv">
+            <h2>Join a trip</h2>
+            {/* <form action="/register" method="POST">
+              <div>
+                <input type="text" name="code" placeholder="trip code" />
+              </div>
+              <div>
+                <input type="text" name="password" placeholder="trip password" />
+              </div>
+              <div>
+                <input type="name" name="name" placeholder="your display name" />
+              </div>
+              <div className="submitdiv">
+                <button> */}
+                  <Link to="/dashboard">Join Trip</Link>
+                {/* </button>
+              </div>
+            </form> */}
           </div>
         </main>
+        <Route path="/dashboard" exact component={Dashboard} />
         <footer>
         </footer>
-      </div>
+        </div>
+      </Router>
     );
   }
 }

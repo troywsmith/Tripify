@@ -7,6 +7,10 @@ body {
   overflow: hidden;
 }
 
+Link {
+  color: white;
+}
+
 .App {
   text-align: center;
 }
@@ -47,6 +51,16 @@ header {
   font-size: 20px;
 }
 
+/* joinpage */
+.joindiv {
+  width: 100%;
+  text-align: center;
+}
+
+.joindiv * {
+  margin: 5px auto;
+}
+
 /* main */
 main {
   display: flex;
@@ -54,13 +68,14 @@ main {
 
 /* left page  */
 .page {
-  background-color: black;
+  border: 1px solid white;
   width: 75%;
 }
 
 /* sidebar */
 .sidebar {
   background-color: black;
+  border: 1px solid white;
   width: 25%;
   height: 900px;
 }

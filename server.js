@@ -1,9 +1,14 @@
 const express = require('express');
 const path = require('path');
+
 // Create a new Express application (web server)
 const app = express();
-const User = require('./models/User');
 
+// API for our database models
+const User = require('./models/User');
+const Trip = require('./models/Trip');
+const Activity = require('./models/Activity');
+const UserTrip = require('./models/UserTrip');
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
@@ -20,6 +25,22 @@ app.use('/static', express.static('build/static'));
 //   });
 // }
 
+// app.get('/', (request, response) => {
+//     Promise.all([
+//       User.all(),
+//       Activity.all(),
+//       Trip.all()
+//     ])
+//     .then(([user, activity, trip]) => {
+//       console.log(`about to render api`)
+//       response.json({
+//         trip: trip,
+//         user: user,
+//         activity: activity
+//       });
+//     });
+// });
+
 app.get('/users', (request, response) => {
   User.all()
     .then(data => {
@@ -27,11 +48,28 @@ app.get('/users', (request, response) => {
     });
 });
 
+// app.get('/activity', (request, response) => {
+//   Activity.all()
+//     .then(data => {
+//       response.json(data);
+//     });
+// });
+
+// app.get('/trip', (request, response) => {
+//   Trip.all()
+//     .then(data => {
+//       response.json(data);
+//     });
+// });
+
+// app.get('/usertrip', (request, response) => {
+//   UserTrip.all()
+//     .then(data => {
+//       response.json(data);
+//     });
+// });
+
 // Start the web server listening on the provided port.
 app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);
 });
-
-
-
-
