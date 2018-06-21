@@ -6,13 +6,13 @@ import Dashboard from '../Dashboard';
 
 class App extends Component {
   state = { 
-    users: []
+    api: []
    }
 
   componentDidMount() {
-    fetch('/users')
-      .then(response => response.json())
-      .then(users => this.setState({ users }));
+    fetch('/')
+      // .then(response => response.json())
+      .then(api => this.setState({ api }));
   }
 
   render() {
