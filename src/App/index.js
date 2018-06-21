@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./style.css";
+import Users from '../Users';
 
 class App extends Component {
   state = { 
@@ -28,16 +29,8 @@ class App extends Component {
         <div className="page">
         </div>
           <div className="sidebar">
-            <div className="users-div">
-                <h3>Users</h3>
-                <ul className="users-list"> 
-                  {this.state.users.map(user => 
-                  <li key={user.user_id}>{user.user_name}</li>
-                  )}
-                </ul>
-            </div>
+            <Users users={this.state.users}/>
           </div>
-   
         </main>
         <footer>
         </footer>
