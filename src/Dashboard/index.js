@@ -5,16 +5,12 @@ import List from '../List';
 
 
 class Dashboard extends Component {
-  // state = { 
-  //   users: []
-  //  }
-
 
 
   constructor(props) {
     super(props);
     this.state = {
-      users: [],
+      api: [],
       showItinerary: false,
       showUsers: false,
       showList: false
@@ -22,13 +18,15 @@ class Dashboard extends Component {
     this._onItineraryClick = this._onItineraryClick.bind(this);
     this._onUsersClick = this._onUsersClick.bind(this);
     this._onListClick = this._onListClick.bind(this);
-
   }
 
   componentDidMount() {
-    fetch('/users')
+    fetch('/.json')
       .then(response => response.json())
-      .then(users => this.setState({ users }));
+      .then(api => this.setState({ api }))
+      .catch(err => {
+        console.log(err);
+      })
   }
 
   _onItineraryClick() {
@@ -82,19 +80,19 @@ class Dashboard extends Component {
               <div className="tabcontentsection">
                 <div id="Itinerary" className="tabcontent">
                   {this.state.showItinerary ?
-                  <Itinerary activities={this.state.users}/> :
+                  <Itinerary api={this.state.api}/> :
                   null
                   }
                 </div>
                 <div id="Users" className="tabcontent">
                   {this.state.showUsers ?
-                  <Users users={this.state.users}/> :
+                  <Users api={this.state.api}/> :
                   null
                   }
                 </div>
                 <div id="List" className="tabcontent">
                   {this.state.showList ?
-                  <List list={this.state.users}/> :
+                  <List api={this.state.api}/> :
                   null
                   }
                 </div>

@@ -9,6 +9,7 @@ const User = require('./models/User');
 const Trip = require('./models/Trip');
 const Activity = require('./models/Activity');
 const UserTrip = require('./models/UserTrip');
+const List = require('./models/List');
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
@@ -25,28 +26,30 @@ app.use('/static', express.static('build/static'));
 //   });
 // }
 
-// app.get('/', (request, response) => {
-//     Promise.all([
-//       User.all(),
-//       Activity.all(),
-//       Trip.all()
-//     ])
-//     .then(([user, activity, trip]) => {
-//       console.log(`about to render api`)
-//       response.json({
-//         trip: trip,
-//         user: user,
-//         activity: activity
-//       });
-//     });
-// });
-
-app.get('/users', (request, response) => {
-  User.all()
-    .then(data => {
-      response.json(data);
+app.get('/.json', (request, response) => {
+    Promise.all([
+      User.all(),
+      Activity.all(),
+      Trip.all(),
+      List.all()
+    ])
+    .then(([user, activity, trip, list]) => {
+      console.log(`about to render api`)
+      response.json({
+        trip: trip,
+        user: user,
+        activity: activity,
+        list: list
+      });
     });
 });
+
+// app.get('/users', (request, response) => {
+//   User.all()
+//     .then(data => {
+//       response.json(data);
+//     });
+// });
 
 // app.get('/activity', (request, response) => {
 //   Activity.all()
