@@ -18,7 +18,8 @@ CREATE TABLE users (
 
 CREATE TABLE trips (
   trip_id SERIAL PRIMARY KEY,
-  trip_name TEXT NOT NULL
+  trip_name TEXT NOT NULL,
+  trip_password_digest TEXT NOT NULL
 );
 
 CREATE TABLE activities (
