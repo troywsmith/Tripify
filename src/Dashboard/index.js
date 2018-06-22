@@ -3,9 +3,7 @@ import Users from '../Users';
 import Itinerary from '../Itinerary';
 import List from '../List';
 
-
 class Dashboard extends Component {
-
 
   constructor(props) {
     super(props);

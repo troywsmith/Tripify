@@ -52,12 +52,12 @@ header {
 }
 
 /* joinpage */
-.joindiv {
+.logindiv {
   width: 100%;
   text-align: center;
 }
 
-.joindiv * {
+.logindiv * {
   margin: 5px auto;
 }
 
