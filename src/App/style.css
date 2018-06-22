@@ -70,7 +70,47 @@ main {
 .page {
   border: 1px solid white;
   width: 50%;
+  display: flex;
 }
+
+.chatdiv {
+  height: 100%;
+  width: 100%;
+}
+
+.chatdiv h3 {
+  height: 20px;
+}
+
+.chat-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.chat-window {
+  border: 1px solid white;
+  height: 70%;
+  width: 100%;
+}
+
+.chat-form {
+  width: 100%;
+  height: 25px;
+}
+
+.chat-form input {
+  width: 70%;
+  height: 70%;
+}
+.chat-form button {
+  width: 20%;
+  height: 100%;
+
+}
+
+
 
 /* sidebar */
 .sidebar {
