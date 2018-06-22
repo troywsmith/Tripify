@@ -5,11 +5,32 @@ class List extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      api: {
+        list: []
+      },
       name: "",
       created: false,
     }
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+  }
+
+  componentDidMount() {
+    console.log("component");
+    
+    this.fetchList()
+  }
+
+  fetchList() {
+    fetch('/.json')
+    
+      .then(response => response.json())
+      .then(api => this.setState({ api }))
+      .catch(err => {
+        console.log(err);
+      })
+       console.log('fetch working');
+
   }
 
   onFormChange(evt) {
@@ -38,10 +59,9 @@ class List extends Component {
         this.setState({
           created: true
         });
-      });
+        this.fetchList()
+      })
   }
-
-
 
   render() {
 
@@ -51,7 +71,7 @@ class List extends Component {
           <div className="list-div">
           <h3>List</h3>
           <ul className="list-list"> 
-          {this.props.api.list.map(item => 
+          {this.state.api.list.map(item => 
           <li key={item.list_id}>{item.item}</li>
           )}
           </ul>
