@@ -24,7 +24,7 @@ class List extends Component {
   onFormSubmit(evt) {
     evt.preventDefault();
     const newListItem = {
-      name: this.state.list_name,
+      name: this.state.item,
     }
     fetch('/.json', {
       method: "POST",
@@ -52,18 +52,18 @@ class List extends Component {
           <h3>List</h3>
           <ul className="list-list"> 
           {this.props.api.list.map(item => 
-          <li key={item.list_id}>{item.list_name}</li>
+          <li key={item.list_id}>{item.item}</li>
           )}
           </ul>
           </div>
 
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label for="list_name">List Item</label>
+            <label for="item">List Item</label>
             <input
               type="text"
-              name="list_name"
-              value={this.state.list_name}
+              name="item"
+              value={this.state.item}
             />
           </p>
           <p>
