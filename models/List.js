@@ -7,7 +7,7 @@ List.all = () => {
 };
 
 List.create = newListItem => {
-  return db.one('INSERT INTO list (list_name) VALUES ($<name>) RETURNING *', newListItem);
+  return db.one('INSERT INTO list (item) VALUES ($<name>) RETURNING *', newListItem);
 };
 
 module.exports = List;
