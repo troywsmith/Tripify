@@ -1,23 +1,38 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import "./style.css";
-import Users from '../Users';
 import Dashboard from '../Dashboard';
+import Login from '../Login';
 
 class App extends Component {
-  state = { 
-    api: []
-   }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      api: [],
+      showLogin: true,
+      showTrip: false
+    };
+    this._onTripClick = this._onTripClick.bind(this);
+  }
 
   componentDidMount() {
-    fetch('/')
-      // .then(response => response.json())
-      .then(api => this.setState({ api }));
+    fetch('/.json')
+      .then(response => response.json())
+      .then(api => this.setState({ api }))
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  _onTripClick() {
+    this.setState({
+      showTrip: true,
+      showLogin: false
+    });
   }
 
   render() {
     return (
-      <Router>
       <div className="App">
        <header className="header">
         <div className="logo-div">
@@ -29,35 +44,26 @@ class App extends Component {
         </div>
         </header>
         <main>
-            <div className="memo">
-              <h2></h2>
+            <div id="Login" className="logindiv">
+                  {this.state.showLogin ? 
+                  <div>
+                    <Login /> 
+                    <button onClick={this._onTripClick}>Join Trip</button>
+                  </div>
+                  : 
+                  null
+                  }
             </div>
-
-          <div className="joindiv">
-            <h2>Join a trip</h2>
-            {/* <form action="/register" method="POST">
-              <div>
-                <input type="text" name="code" placeholder="trip code" />
-              </div>
-              <div>
-                <input type="text" name="password" placeholder="trip password" />
-              </div>
-              <div>
-                <input type="name" name="name" placeholder="your display name" />
-              </div>
-              <div className="submitdiv">
-                <button> */}
-                  <Link to="/dashboard">Join Trip</Link>
-                {/* </button>
-              </div>
-            </form> */}
-          </div>
-        </main>
-        <Route path="/dashboard" exact component={Dashboard} />
+      </main>
+      <div id="Trip" className="trip">
+                  {this.state.showTrip ?
+                  <Dashboard /> :
+                  null
+                  }
+                </div>
         <footer>
         </footer>
         </div>
-      </Router>
     );
   }
 }
