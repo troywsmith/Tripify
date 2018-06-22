@@ -2,14 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: black;
-  color: #828282;
+  background-color: #FFF8F0;
+  color: #AB8B67;
   overflow: auto;
   background: hw
-}
-
-Link {
-  color: white;
 }
 
 .App {
@@ -23,12 +19,10 @@ header {
 }
 
 .logo-div {
-  background-color: black;
   width: 25%;
 }
 
 .info-div {
-  background-color: black;
   width: 75%;
 }
 
@@ -45,7 +39,6 @@ header {
 
 .title {
   font-size: 30px;
-  color: white;
 }
 
 .intro {
@@ -72,7 +65,8 @@ main {
   border: 1px solid white;
   width: 50%;
   display: flex;
-  border-radius: 20px;
+  border-radius: 5px;
+  background-color: #DFE0DF;
 }
 
 .chatdiv {
@@ -117,10 +111,9 @@ main {
 
 /* sidebar */
 .sidebar {
-  background-color: black;
-  border: 1px solid white;
   width: 50%;
   height: 900px;
+  background-color:#DFE0DF; 
 }
 
 .tabnav {
@@ -131,8 +124,9 @@ main {
   overflow: hidden;
   width: 50%;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
-  border-radius: 5px;
+  background-color: #AB8B67;
+  color: #ccc;
+  border-radius: 2px;
 }
 
 .tab button {
@@ -143,6 +137,8 @@ main {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
+  font-size: 18px;
+  color: #DFE0DF;
 }
 
 .tab button:hover {
@@ -163,19 +159,20 @@ main {
   display: flex;
 }
 
+.users-list li {
+  width: 33%;
+}
+
 .userpic {
   width: 100%;
   height: auto;
+  border-radius: 100px;
 }
 
 /* itinerarytab  */
 ul {
   list-style-type: none;
-  padding: 0;
-}
-
-h3 {
-  color: white;
+  /* padding: 0; */
 }
 
 .activityli {
@@ -188,4 +185,22 @@ h3 {
 
 .activity {
   width: 50%;
+}
+
+.list-list {
+  margin: 0;
+  padding: 0;
+}
+
+.list-list li {
+  cursor: pointer;
+  position: relative;
+  padding: 12px 8px 12px 40px;
+  background: #eee;
+  font-size: 18px;
+  transition: 0.2s;
+}
+
+.list-list li:nth-child(odd) {
+  background: #f9f9f9;
 }

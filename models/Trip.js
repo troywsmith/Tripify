@@ -12,7 +12,7 @@ Trip.find = id => {
 }
 
 Trip.create = newTrip => {
-  return db.one('INSERT INTO trips (trip_name, trip_password_digest) VALUES ($<trip_name>, $<trip_password_digest>) RETURNING *', newTrip);
+  return db.one('INSERT INTO trips (trip_name, trip_password_digest) VALUES ($<name>, $<trip_password_digest>) RETURNING *', newTrip);
 }
 
 Trip.update = updateTrip => {
