@@ -1,5 +1,7 @@
 const express = require('express');
 const path = require('path');
+const bodyParser = require('body-parser');
+const jsonParser = bodyParser.json();
 
 // Create a new Express application (web server)
 const app = express();
@@ -8,15 +10,16 @@ const app = express();
 const User = require('./models/User');
 const Trip = require('./models/Trip');
 const Activity = require('./models/Activity');
-const UserTrip = require('./models/UserTrip');
 const List = require('./models/List');
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
 const PORT = process.env.PORT || 4567;
 
+// ALL APP.USE
 // Needed for Heroku
 app.use('/static', express.static('build/static'));
+app.use(jsonParser);
 
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
@@ -41,6 +44,19 @@ app.get('/.json', (request, response) => {
         activity: activity,
         list: list
       });
+    });
+});
+
+
+app.post('/.json', (request, response) => {
+  // console.log(request) 
+  const newListItem = {
+    name: request.body.name // Why not list_name? Check List Model too
+  };
+  console.log('create list item:', newListItem)
+  List.create(newListItem)
+    .then(listItem => {
+      response.json(listItem);
     });
 });
 
