@@ -91,7 +91,7 @@ class Dashboard extends Component {
                 </div>
                 <div id="List" className="tabcontent">
                   {this.state.showList ?
-                  <List api={this.state.api}/> :
+                  <List /> :
                   null
                   }
                 </div>
