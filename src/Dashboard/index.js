@@ -1,11 +1,10 @@
 import React, { Component } from "react";
+import Chat from '../Chat';
 import Users from '../Users';
 import Itinerary from '../Itinerary';
 import List from '../List';
 
-
 class Dashboard extends Component {
-
 
   constructor(props) {
     super(props);
@@ -60,18 +59,18 @@ class Dashboard extends Component {
             <div className="page">
                 <div className="chatdiv">
                     <h3>Chat</h3>
+                    <Chat />
                 </div>
             </div>
             <div className="sidebar">
           
               <div className="tabnav">
                 <div className="tab">
-                  <button onClick={this._onItineraryClick}>Itinerary</button>
+                  <button onClick={this._onUsersClick}>Members</button>
                 </div>
                 <div className="tab">
-                  <button onClick={this._onUsersClick}>Users</button>
+                  <button onClick={this._onItineraryClick}>Itinerary</button>
                 </div>
-
                 <div className="tab">
                   <button onClick={this._onListClick}>List</button>
                 </div>

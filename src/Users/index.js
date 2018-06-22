@@ -5,10 +5,13 @@ class Users extends Component {
     return (
       <div className="App">
         <div className="users-div">
-        <h3>Users</h3>
+        <h3>Members</h3>
         <ul className="users-list"> 
         {this.props.api.user.map(user => 
-        <li key={user.user_id}>{user.user_name}</li>
+        <li key={user.user_id}>
+          <p>{user.user_name}</p>
+          <img className="userpic" src={user.user_img}/>
+        </li>
         )}
         </ul>
         </div>

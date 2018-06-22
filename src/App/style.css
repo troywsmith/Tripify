@@ -4,7 +4,8 @@ body {
   font-family: sans-serif;
   background-color: black;
   color: #828282;
-  overflow: hidden;
+  overflow: auto;
+  background: hw
 }
 
 a {
@@ -56,12 +57,12 @@ header {
 }
 
 /* joinpage */
-.joindiv {
+.logindiv {
   width: 100%;
   text-align: center;
 }
 
-.joindiv * {
+.logindiv * {
   margin: 5px auto;
 }
 
@@ -73,26 +74,57 @@ main {
 /* left page  */
 .page {
   border: 1px solid white;
-  width: 75%;
+  width: 50%;
+  display: flex;
+  border-radius: 20px;
 }
+
+.chatdiv {
+  height: 100%;
+  width: 100%;
+}
+
+.chatdiv h3 {
+  height: 20px;
+}
+
+.chat-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+}
+
+.chat-window {
+  /* border: 1px solid white; */
+  height: 70%;
+  width: 100%;
+}
+
+.chat-form {
+  width: 100%;
+  height: 25px;
+  bottom: 0px;
+}
+
+.chat-form input {
+  width: 70%;
+  height: 70%;
+}
+.chat-form button {
+  width: 20%;
+  height: 100%;
+
+}
+
+
 
 /* sidebar */
 .sidebar {
   background-color: black;
   border: 1px solid white;
-  width: 25%;
+  width: 50%;
   height: 900px;
-}
-
-.users-div {
-  text-align: left;
-}
-
-.users-list {}
-
-.users-list li {
-  margin: 10px 0px;
-  list-style-type: none;
 }
 
 .tabnav {
@@ -104,6 +136,7 @@ main {
   width: 50%;
   border: 1px solid #ccc;
   background-color: #f1f1f1;
+  border-radius: 5px;
 }
 
 .tab button {
@@ -127,4 +160,36 @@ main {
 .tabcontent {
   padding: 6px 12px;
   border-top: none;
+}
+
+/* usertab */
+.users-list {
+  display: flex;
+}
+
+.userpic {
+  width: 100%;
+  height: auto;
+}
+
+/* itinerarytab  */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h3 {
+  color: white;
+}
+
+.activityli {
+  display: flex;
+}
+
+.activitymoment {
+  width: 50%;
+}
+
+.activity {
+  width: 50%;
 }
