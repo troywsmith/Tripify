@@ -8,7 +8,13 @@ class Itinerary extends Component {
         <h3>Itinerary</h3>
         <ul className="list-list"> 
         {this.props.api.activity.map(activity => 
-        <li key={activity.activity_id}>{activity.activity_name}</li>
+        <li className="activityli" key={activity.activity_id}>
+          <div className="activitymoment">
+            {/* <p>{activity.date}</p> */}
+            <p>{activity.time}</p>
+          </div>
+          <p className="activity">{activity.activity_name}</p>
+        </li>
         )}
         </ul>
         </div>
