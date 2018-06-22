@@ -4,7 +4,7 @@ body {
   font-family: sans-serif;
   background-color: black;
   color: #828282;
-  overflow: hidden;
+  overflow: auto;
 }
 
 Link {
@@ -69,26 +69,15 @@ main {
 /* left page  */
 .page {
   border: 1px solid white;
-  width: 75%;
+  width: 50%;
 }
 
 /* sidebar */
 .sidebar {
   background-color: black;
   border: 1px solid white;
-  width: 25%;
+  width: 50%;
   height: 900px;
-}
-
-.users-div {
-  text-align: left;
-}
-
-.users-list {}
-
-.users-list li {
-  margin: 10px 0px;
-  list-style-type: none;
 }
 
 .tabnav {
@@ -123,4 +112,36 @@ main {
 .tabcontent {
   padding: 6px 12px;
   border-top: none;
+}
+
+/* usertab */
+.users-list {
+  display: flex;
+}
+
+.userpic {
+  width: 100%;
+  height: auto;
+}
+
+/* itinerarytab  */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+h3 {
+  color: white;
+}
+
+.activityli {
+  display: flex;
+}
+
+.activitymoment {
+  width: 50%;
+}
+
+.activity {
+  width: 50%;
 }
