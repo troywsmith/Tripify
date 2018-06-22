@@ -5,7 +5,6 @@ class Chat extends Component {
     return (
         <div className="chat-container">
             <div className="chat-window">
-                <p> CHAT WINDOW </p>
             </div>
             <form className="chat-form">
                 <input type="text">
