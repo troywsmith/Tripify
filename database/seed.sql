@@ -7,9 +7,9 @@ DELETE FROM activities;
 DELETE FROM user_trip;
 DELETE FROM list;
 
-INSERT INTO users (user_name, user_img) VALUES ('Jae', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png');
-INSERT INTO users (user_name, user_img) VALUES ('Raul', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png');
-INSERT INTO users (user_name, user_img) VALUES ('Troy', 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/User_icon_2.svg/220px-User_icon_2.svg.png');
+INSERT INTO users (user_name, user_img) VALUES ('Jae', 'https://media.licdn.com/dms/image/C4E03AQGVxg-u63Xwsg/profile-displayphoto-shrink_800_800/0?e=1534982400&v=beta&t=LIfRANiTMIYQU0bzV_vXvdTICg_S0Q_93prdiItmA-E');
+INSERT INTO users (user_name, user_img) VALUES ('Raul', 'https://media.licdn.com/dms/image/C4D03AQFBXz-wtA7uEQ/profile-displayphoto-shrink_800_800/0?e=1534982400&v=beta&t=wa4NN02XCd8CVIHPEEjV-5AA0ckiTsLARVprHSb-1e8');
+INSERT INTO users (user_name, user_img) VALUES ('Troy', 'https://media.licdn.com/dms/image/C4E03AQEsuH6Dao8u1g/profile-displayphoto-shrink_200_200/0?e=1534982400&v=beta&t=6eoq-shv6Pkj5YKCAOvbh3pxAiP0WqJVxr89-r1jRws');
 
 INSERT INTO trips (trip_name, trip_password_digest, trip_description) VALUES ('Camping 2018', 'password', 'General Assembly WDI Tesseract camping trip!');
 
@@ -27,4 +27,3 @@ INSERT INTO list (item) VALUES ('tent');
 INSERT INTO user_trip (user_id, trip_id) VALUES (1, 1);
 INSERT INTO user_trip (user_id, trip_id) VALUES (2, 1);
 INSERT INTO user_trip (user_id, trip_id) VALUES (3, 1);
-

@@ -71,31 +71,30 @@ class List extends Component {
 
     return (
       <div className="list">
-        <div className="list-div">
+          <div className="list-div">
           <h3>List</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-            <p>
-              <label for="item"></label>
-              <input
-                type="text"
-                name="item"
-                value={this.state.item}
-                placeholder="new item"
-              />
-            </p>
-            <p>
-              <input type="submit" value="Create Item" />
-            </p>
-          </form>
-          <ul className="list-list">
-            {this.state.api.list.map(item =>
-              <li key={item.list_id}>{item.item}</li>
-            )}
+          <p>
+            <label for="item"></label>
+            <input
+              type="text"
+              name="item"
+              value={this.state.item}
+              placeholder="new item"
+            />
+          </p>
+          <p>
+            <input type="submit" value="Create Item" />
+          </p>
+        </form>
+          <ul className="list-list"> 
+          {this.state.api.list.map(item => 
+          <li key={item.list_id}>{item.item}</li>
+          )}
           </ul>
-        </div>
+          </div>
       </div>
     );
   }
 }
-
 export default List;
