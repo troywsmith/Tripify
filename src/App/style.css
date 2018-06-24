@@ -11,7 +11,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: rgb(223, 224, 223);
+  background-color: rgb(255, 247, 239);
   color: rgb(171, 139, 103);
   overflow: auto;
   background: hw
@@ -26,7 +26,6 @@ header {
   height: 100px;
   padding: 20px;
   margin-bottom: 10px;
-  background-color: rgb(224, 223, 224);
   border-bottom: 2px solid rgb(171, 139, 103);
 }
 
@@ -128,7 +127,7 @@ main {
 .tabnav {
   display: flex;
   justify-content: space-between;
-  background-color: rgb(223, 224, 223);
+  background-color: rgb(255, 247, 239);
 }
 
 .tab {

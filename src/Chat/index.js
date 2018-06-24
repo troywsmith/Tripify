@@ -52,7 +52,14 @@ class Chat extends Component {
         }
 
         // Disable send message button if there is no input
- 
+        const canSendMessage = () => {
+            const { user_name, message } = this.state;
+            return (
+                user_name.length > 0 &&
+                message.length > 0
+            );
+            const { email, password } = this.state;
+        }
     }
     render() {
         return (
