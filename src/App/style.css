@@ -8,17 +8,6 @@ body {
   background: hw
 }
 
-<<<<<<< HEAD
-a {
-  color: white;
-}
-
-a:visited {
-  color: rgba(230, 230, 230, 1);
-}
-
-=======
->>>>>>> e6d54bb886c4792e607fabc4d12c1ff13bc00ad2
 .App {
   text-align: center;
 }
