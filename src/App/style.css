@@ -107,23 +107,22 @@ main {
 
 }
 
-
-
 /* sidebar */
 .sidebar {
   width: 50%;
   height: 900px;
-  background-color:rgb(223, 224, 223); 
+  background-color:rgb(171, 139, 103);
 }
 
 .tabnav {
   display: flex;
+  background-color: rgb(255, 247, 239)
 }
 
 .tab {
   overflow: hidden;
   width: 50%;
-  border: 1px solid rgb(204, 204, 204);
+  /* border: 1px solid rgb(171, 139, 103); */
   border-width: 1px 1px 0 1px;
   background-color: rgb(171, 139, 103);
   color: rgb(204, 204, 204);
@@ -145,6 +144,7 @@ main {
 .tab button:hover {
   background-color: rgb(221, 221, 221);
   color: rgb(171, 139, 103);
+  border-color: rgb(221, 221, 221);
 }
 
 .tab button.active {

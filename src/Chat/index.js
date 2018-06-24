@@ -25,7 +25,7 @@ class Chat extends Component {
             addMessage(data);
         });
 
-        // Change state for new messages to be added to the page/array (from all sources/clients).
+        // Change state for new messages to be added to the page/array from all sources/clients.
         const addMessage = (data) => {
             console.log(data);
             // The .... is a spread that allows new messages to be inserted into the message array.
@@ -33,7 +33,7 @@ class Chat extends Component {
             console.log(this.state.messages)
         }
 
-        // Change state for a new message value from source page to be accepted (from host client).
+        // Change state for a new message value from source page to be accepted from host client.
         this.handleChange = (evt) => {
             console.log(evt.target)
             this.setState({ message: evt.target.value })
@@ -50,6 +50,9 @@ class Chat extends Component {
             })
             this.setState({ message: '' });
         }
+
+        // Disable send message button if there is no input
+ 
     }
     render() {
         return (
