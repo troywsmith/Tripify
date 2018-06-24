@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UpdateList from "../UpdateList";
 
 class List extends Component {
 
@@ -47,6 +48,9 @@ class List extends Component {
     const newListItem = {
       name: this.state.item,
     }
+    this.setState({
+      item: ''
+    });
     fetch('/.json', {
       method: "POST",
       body: JSON.stringify(newListItem),
@@ -63,6 +67,8 @@ class List extends Component {
       })
   }
 
+
+
   render() {
 
     return (
@@ -77,7 +83,7 @@ class List extends Component {
           </ul>
           </div>
 
-        <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+        <form id="list-form" onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
             <label for="item">List Item</label>
             <input
@@ -89,6 +95,7 @@ class List extends Component {
           <p>
             <input type="submit" value="Create Item" />
           </p>
+          <UpdateList />
         </form>
       </div>
     );
