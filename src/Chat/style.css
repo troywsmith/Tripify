@@ -5,7 +5,7 @@
 
 /* Sub-container for submitted messages */
 .messages-display {
-  border: 2px solid rgba(171, 139, 103, 1);
+  border: 2px solid rgba(223, 224, 223, 1);;
   height: 70%;
   text-align: left;
   padding: 4px;
@@ -29,7 +29,16 @@
 /* Area for a single submitted message */
 .message-input {
   width: 75%;
+}
+
+label {
   height: 24pt;
+  width: 50px;
+}
+
+input {
+  height: 24pt;
+  font-size: 12pt;
 }
 
 .submit-btn {

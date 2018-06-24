@@ -1,8 +1,17 @@
+
+COLOR THEME {
+  color: rgb(204, 204, 204);
+  color: rgb(221, 221, 221);
+  color: rgb(223, 224, 223);
+  color: rgb(171, 139, 103);
+}
+
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background-color: rgb(255, 247, 239);
+  background-color: rgb(223, 224, 223);
   color: rgb(171, 139, 103);
   overflow: auto;
   background: hw
@@ -16,6 +25,9 @@ header {
   display: flex;
   height: 100px;
   padding: 20px;
+  margin-bottom: 10px;
+  background-color: rgb(224, 223, 224);
+  border-bottom: 2px solid rgb(171, 139, 103);
 }
 
 .logo-div {
@@ -62,7 +74,7 @@ main {
 
 /* left page  */
 .page {
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgb(223, 224, 223);
   width: 50%;
   display: flex;
   border-radius: 5px;
@@ -106,7 +118,6 @@ main {
   height: 100%;
 
 }
-
 /* sidebar */
 .sidebar {
   width: 50%;
@@ -116,16 +127,16 @@ main {
 
 .tabnav {
   display: flex;
-  background-color: rgb(255, 247, 239)
+  justify-content: space-between;
+  background-color: rgb(223, 224, 223);
 }
 
 .tab {
   overflow: hidden;
   width: 50%;
-  /* border: 1px solid rgb(171, 139, 103); */
   border-width: 1px 1px 0 1px;
   background-color: rgb(171, 139, 103);
-  color: rgb(204, 204, 204);
+  color: rgb(223, 224, 223);
   border-radius: 15px 5px 0 0;
 }
 
@@ -142,12 +153,12 @@ main {
 }
 
 .tab button:hover {
-  background-color: rgb(221, 221, 221);
+  background-color: rgb(223, 224, 223);
   color: rgb(171, 139, 103);
-  border-color: rgb(221, 221, 221);
+  border-color: rgb(223, 224, 223);
 }
 
-.tab button.active {
+.tab button:active {
   background-color: rgb(204, 204, 204);
 }
 
@@ -163,6 +174,7 @@ main {
 
 .users-list li {
   width: 33%;
+  margin: 5px;
 }
 
 .userpic {
