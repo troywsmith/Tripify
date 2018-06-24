@@ -83,8 +83,8 @@ class Chat extends Component {
                                 value={this.state.message}
                                 onChange={this.handleChange}
                             />
+                            <button className="submit-btn" type="submit" value="Send" onClick={this.sendMessage} >➜</button>
                     </p>
-                    <input className="submit-btn" type="submit" value="Send" onClick={this.sendMessage} />
                 </form>
                 </div>
             </div>

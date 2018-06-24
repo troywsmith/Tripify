@@ -5,13 +5,13 @@
 
 /* Sub-container for submitted messages */
 .messages-display {
-  border: 2px solid #AB8B67;
-  height: 10%;
+  border: 2px solid rgba(171, 139, 103, 1);
+  height: 70%;
   text-align: left;
   padding: 4px;
   margin: 4px;
   border-radius: 7px;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, 1);
   overflow-y: scroll;
 }
 
@@ -32,6 +32,10 @@
   height: 24pt;
 }
 
+.submit-btn {
+  height: 24pt;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
@@ -41,10 +45,10 @@
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #AB8B67;
+  background: rgba(171, 139, 103, 1);
   border-radius: 2px;
 }
 
 .submit-btn:hover {
-  background-color: rgb(154, 191, 255);
+  background-color: rgba(154, 191, 255, 1);
 }
