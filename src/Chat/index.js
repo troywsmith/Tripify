@@ -54,11 +54,35 @@ class Chat extends Component {
     return (
         <div className="chat-container">
             <div className="chat-window">
+                {/* Displays messages */}
+                {this.state.messages.map(message => {
+                    return (
+                        <div>{message.user_name}: {message.message}</div>
+                    )
+                })}
             </div>
-            <form className="chat-form">
-                <input type="text">
-                </input>
-                <button>Send</button>
+            {/* Area for client name and messages to be entered. */}
+            <form onSubmit={this.handleSubmit}>
+                <p>
+                    <label for="user_name">Name: </label>
+                    <input
+                        type='text'
+                        name='user_name'
+                        placeholder='Enter Name here'
+                        value={this.state.user_name}
+                        onChange={evt => { this.setState({ user_name: evt.target.value }) }} />
+                </p>
+                <p>
+                    <label htmlFor="message">Message: </label>
+                    <input
+                        type='text'
+                        name='message'
+                        placeholder='Type message here'
+                        value={this.state.message}
+                        onChange={this.handleChange}
+                    />
+                </p>
+                <input className="submit-btn" type="submit" value="Send" onClick={this.sendMessage} />
             </form>
         </div>
     );

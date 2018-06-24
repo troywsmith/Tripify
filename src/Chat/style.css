@@ -1,0 +1,16 @@
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(100, 100, 100, .1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 200, 200, 1);
+  border-radius: 2px;
+}
+
+.submit-btn:hover {
+  background-color: rgb(154, 191, 255);
+}
