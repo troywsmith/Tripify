@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+// Import socket for chat messaging feature
+const socket = require('socket.io');
 
 // Create a new Express application (web server)
 const app = express();
@@ -89,6 +91,19 @@ app.post('/.json', (request, response) => {
 // });
 
 // Start the web server listening on the provided port.
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);
+});
+
+// Socket/Chat functions must be after app.listen
+const io = socket(server);
+
+io.on('connection', (socket) => {
+  console.log(socket.id);
+  socket.on('SEND_MESSAGE', (data) => {
+    io.emit('RECEIVE_MESSAGE', data);
+  });
+  socket.on('disconnect', (socket) => {
+    console.log('user disconnected')
+  });
 });
