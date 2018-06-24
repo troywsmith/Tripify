@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
+import "./style.css"
 
 class Chat extends Component {
     /*
@@ -57,7 +58,7 @@ class Chat extends Component {
                 {/* Displays messages */}
                 {this.state.messages.map(message => {
                     return (
-                        <div>{message.user_name}: {message.message}</div>
+                        <div className="chat-messages">{message.user_name}: {message.message}</div>
                     )
                 })}
             </div>
