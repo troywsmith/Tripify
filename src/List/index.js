@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import UpdateList from "../UpdateList";
 
 class List extends Component {
 
@@ -47,6 +48,9 @@ class List extends Component {
     const newListItem = {
       name: this.state.item,
     }
+    this.setState({
+      item: ''
+    });
     fetch('/.json', {
       method: "POST",
       body: JSON.stringify(newListItem),
@@ -93,5 +97,4 @@ class List extends Component {
     );
   }
 }
-
 export default List;
