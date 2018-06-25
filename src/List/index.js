@@ -69,7 +69,9 @@ class List extends Component {
     return (
       <div className="list">
           <div className="list-div">
-          <h3>List</h3>
+          <div className="tab-header">
+            <h2>List</h2>
+          </div>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
               <label htmlFor="item"></label>

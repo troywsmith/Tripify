@@ -93,7 +93,7 @@ class App extends Component {
                     {this.state.showRegister ? 
                     <div>
                       <Register /> 
-                      <button onClick={this._onRegister}>Register</button>
+                      {/* <button onClick={this._onRegister}>Register</button> */}
                     </div>
                     : 
                     null

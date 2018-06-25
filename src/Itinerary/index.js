@@ -46,7 +46,9 @@ class Itinerary extends Component {
     return (
       <div className="App">
         <div className="list-div">
-          <h2>Itinerary</h2>
+          <div className="tab-header">
+            <h2>Itinerary</h2>
+          </div>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
             <p>
               <label for="item"></label>
