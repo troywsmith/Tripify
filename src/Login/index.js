@@ -81,7 +81,7 @@ class Login extends Component {
                   />
               </div>
               <input type="submit" value="Login"/>
-              {/* <button type="button" value="Register"/> */}
+              <button type="button" value="Register"/>
             </form>
           </div>
       </div>
