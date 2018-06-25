@@ -5,7 +5,9 @@ class Itinerary extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      name: "",
+      activity_name: "",
+      date: "",
+      time: "",
       created: false,
     }
     this.onFormChange = this.onFormChange.bind(this);
@@ -24,7 +26,9 @@ class Itinerary extends Component {
   onFormSubmit(evt) {
     evt.preventDefault();
     const newActivity = {
-      name: this.state.activity,
+      activity_name: this.state.activity_name,
+      date: this.state.date,
+      time: this.state.time,
     }
     fetch('/.json', {
       method: "POST",
@@ -44,17 +48,35 @@ class Itinerary extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="Itinerary">
         <div className="list-div">
-          <h2>Itinerary</h2>
+          <h3>Itinerary</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
             <p>
-              <label for="item"></label>
+              <label for="activity_name"></label>
               <input
               type="text"
-              name="item"
+              name="activity_name"
               value={this.state.activity}
-              placeholder="new activity"
+              placeholder="Enter new activity"
+            />
+            </p>
+            <p>
+              <label for="time"></label>
+              <input
+              type="text"
+              name="time"
+              value={this.state.time}
+              placeholder="Enter time"
+            />
+            </p>
+            <p>
+              <label for="date"></label>
+              <input
+              type="text"
+              name="date"
+              value={this.state.date}
+              placeholder="Enter new date"
             />
             </p>
             <input type="submit" value="Add" />
@@ -62,11 +84,9 @@ class Itinerary extends Component {
           <ul className="list-list"> 
             {this.props.api.activity.map(activity => 
             <li className="activityli" key={activity.activity_id}>
-              <div className="activitymoment">
-                {/* <p>{activity.date}</p> */}
-                <p>{activity.time}</p>
+              <div className="activitydetails">
+                  <p>{activity.activity_name}: {activity.time}, {activity.date}</p>
               </div>
-              <p className="activity">{activity.activity_name}</p>
             </li>
             )}
           </ul>

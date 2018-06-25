@@ -253,15 +253,17 @@ ul {
 
 .activityli {
   display: flex;
+  text-align: center;
 }
 
-.activitymoment {
+.activitydetails {
+  text-align: center;
   width: 50%;
 }
 
-.activity {
+/* .activity {
   width: 50%;
-}
+} */
 
 .list-div {
   color: black;
