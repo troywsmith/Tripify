@@ -1,4 +1,3 @@
-
 COLOR THEME {
   color: rgb(204, 204, 204);
   color: rgb(221, 221, 221);
@@ -153,18 +152,28 @@ main {
   background-color: rgba(244, 151, 108, 1);
 }
 
+#members-tab:hover {
+  background-color: rgb(255, 109, 41);
+}
+
 #itinerary-tab {
-  background-color: rgba(243, 210, 80, 1);
+  background-color: rgb(246, 217, 101);
+}
+
+#itinerary-tab:hover {
+  background-color: rgb(255, 204, 0);
 }
 
 #list-tab {
   background-color: rgba(115, 149, 174, 1);
 }
 
+#list-tab:hover {
+  background-color: rgb(41, 164, 252);
+}
+
 .tab button:hover {
-  background-color: rgb(223, 224, 223);
-  color: rgb(171, 139, 103);
-  border-color: rgb(223, 224, 223);
+  font-weight: bold;
 }
 
 .tab button:active {
@@ -200,7 +209,6 @@ main {
 /* itinerarytab  */
 ul {
   list-style-type: none;
-  /* padding: 0; */
 }
 
 .activityli {

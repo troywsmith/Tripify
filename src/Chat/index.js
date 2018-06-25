@@ -59,6 +59,7 @@ class Chat extends Component {
     render() {
         return (
             <div className="chat-container">
+                <h3>Chat</h3>
                 <div className="messages-display">
                     {/* Displays messages */}
                     {this.state.messages.map(message => {

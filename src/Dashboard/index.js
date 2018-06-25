@@ -58,7 +58,6 @@ class Dashboard extends Component {
         <main>
             <div className="page">
                 <div className="chatdiv">
-                    <h3>Chat</h3>
                     <Chat />
                 </div>
             </div>

@@ -1,6 +1,6 @@
 /* Container for entire chat area */
 .chat-container {
-  display: float;
+  /* display: float; */
 }
 
 /* Sub-container for submitted messages */
