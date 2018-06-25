@@ -1,7 +1,9 @@
 const express = require('express');
+const session = require("express-session");
 const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+
 // Import socket for chat messaging feature
 const socket = require('socket.io');
 const bcrypt = require('bcrypt');
@@ -28,6 +30,15 @@ app.use(jsonParser);
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+
+app.use(
+  session({
+    secret: "troys super secret password",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
 
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
@@ -85,7 +96,6 @@ app.post('/.json', (request, response) => {
 
 //register user
 app.post("/register.json", (request, response) => {
-  console.log(request.body);
   const username = request.body.username;
   const password = request.body.password;
   console.log('username: ' + username);
@@ -107,6 +117,26 @@ app.post("/register.json", (request, response) => {
     .then(user => {
       response.json(user);
       });
+});
+
+//login user
+app.post("/login.json", (request, response) => {
+  const username = request.body.username;
+  const password = request.body.password;
+  console.log('username: ' + username);
+  console.log('password: ' + password);  
+  User.findByUsername(username)
+  .then(user => {
+    return bcrypt
+      .compare(password, user.password_digest)
+      .then(isPasswordCorrect => {
+        if (isPasswordCorrect) {
+          request.session.loggedIn = true;
+          request.session.userId = user.id;
+          return response.redirect(301, "/");
+        }
+      })
+  });
 });
 
 

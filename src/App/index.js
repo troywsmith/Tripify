@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import "./style.css";
-import Dashboard from '../Dashboard';
+// import Login from '../Login';
+// import Register from '../Register';
 import JoinTrip from '../JoinTrip';
-import Register from '../Register';
+import Dashboard from '../Dashboard';
 
 class App extends Component {
   
@@ -10,47 +11,98 @@ class App extends Component {
     super(props);
     this.state = {
       api: [],
-      showRegister: true,
+      username: '',
+      password: '',
+      showRegisterLogin: true,
       showJoinTrip: false,
       showDashboard: false,
+      created: false,
       // name: "",
     };
-    this._onRegister = this._onRegister.bind(this);
     this._onTripClick = this._onTripClick.bind(this);
+    this.onFormChange = this.onFormChange.bind(this);
+    this.onLoginClick = this.onLoginClick.bind(this);
+    this.onRegisterClick = this.onRegisterClick.bind(this);
   }
 
-  // onFormChange(evt) {
-  //   const element = evt.target;
-  //   const name = element.name; //"title"
-  //   const value = element.value; //"g"
-  //   const newState = {};
-  //   newState[name] = value;
-  //   this.setState(newState);
-  // }
+  onFormChange(evt) {
+    const element = evt.target;
+    console.log('element: ' + element)
+    const elementname = element.name; //"title"
+    console.log(elementname);
 
-  // onFormSubmit(evt) {
-  //   evt.preventDefault();
-  //   const newUser = {
-  //     name: this.state.name,
-  //   }
-  //   this.setState({
-  //     item: ''
-  //   });
-  //   fetch('/.json', {
-  //     method: "POST",
-  //     body: JSON.stringify(newUser),
-  //     headers: {
-  //       "Accept": "application/json",
-  //       "Content-type": "application/json"
-  //     }
-  //   }).then(response => response.json())
-  //     .then(listItem => {
-  //       this.setState({
-  //         created: true
-  //       });
-  //       this.fetchList()
-  //     })
-  // }
+    let un = '';
+    let pw = '';
+
+    if (elementname === 'username') {
+      un = element.value;
+      this.setState({username: un});
+    } else {
+      pw = element.value;
+      this.setState({password: pw});
+    }    
+
+    console.log(this.state);
+  }
+
+  //when a user clicks login
+  onLoginClick(evt) {
+    evt.preventDefault();
+    const newUser = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.setState({
+      username: '',
+      password: ''
+    });
+    fetch('/login.json', {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Accept": "application/json",
+        "Content-type": "application/json"
+      }
+    })
+      // .then(response => response.json())
+      .then(user => {
+        this.setState({
+          showRegisterLogin: false,
+          showJoinTrip: true,
+        });
+      })
+  }
+
+  //when a user clicks register
+  onRegisterClick(evt) {
+    console.log('register successfully clicked');
+    evt.preventDefault();
+    const newUser = {
+      username: this.state.username,
+      password: this.state.password
+    }
+    this.setState({
+      username: '',
+      password: ''
+    });
+    fetch('/register.json', {
+      method: "POST",
+      body: JSON.stringify(newUser),
+      headers: {
+        "Accept": "application/json",
+        "Content-type": "application/json"
+      }
+    })
+      // .then(response => response.json())
+      .then(user => {
+        this.setState({
+          created: true,
+          showRegisterLogin: false,
+          showJoinTrip: true,
+        })
+        ;
+      })
+  }
 
   componentDidMount() {
     fetch('/.json')
@@ -59,13 +111,6 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       })
-  }
-
-  _onRegister() {
-    this.setState({
-      showRegister: false,
-      showJoinTrip: true,
-    });
   }
 
   _onTripClick() {
@@ -90,10 +135,28 @@ class App extends Component {
         <main>
             <div className="joins">
               <div id="Register" className="logindiv">
-                    {this.state.showRegister ? 
+                    {this.state.showRegisterLogin ? 
                     <div>
-                      <Register /> 
-                      {/* <button onClick={this._onRegister}>Register</button> */}
+                      <form onChange={this.onFormChange}>
+                        <div>
+                          <input
+                            type="text"
+                            name="username"
+                            value={this.state.username}
+                            placeholder="username"
+                          />
+                        </div>
+                        <div>
+                          <input
+                            type="text"
+                            name="password"
+                            value={this.state.password}
+                            placeholder="password"
+                          />
+                        </div>
+                        <input type="submit" value="Login" onClick={this.onLoginClick}/>
+                        <input type="button" value="Register" onClick={this.onRegisterClick}/>
+                      </form>
                     </div>
                     : 
                     null
@@ -117,7 +180,6 @@ class App extends Component {
                     }
              </div>
         </main>
-
       <footer>
       </footer>
       </div>

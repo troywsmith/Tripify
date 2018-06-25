@@ -48,5 +48,5 @@ CREATE TABLE user_trip (
 CREATE TABLE messages (
   message_id SERIAL PRIMARY KEY,
   content TEXT NOT NULL, 
-  user_id INTERGER REFERENCES users(user_id)
+  user_id INTEGER REFERENCES users(user_id)
 )
