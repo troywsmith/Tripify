@@ -28,7 +28,7 @@ class Chat extends Component {
         // Change state for new messages to be added to the page/array from all sources/clients.
         const addMessage = (data) => {
             console.log(data);
-            // The .... is a spread that allows new messages to be inserted into the message array.
+            // The ... is a spread that allows new messages to be inserted into the message array.
             this.setState({ messages: [...this.state.messages, data] });
             console.log(this.state.messages)
         }
