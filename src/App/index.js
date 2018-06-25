@@ -157,8 +157,6 @@ class App extends Component {
                         <input type="submit" value="Login" onClick={this.onLoginClick}/>
                         <input type="button" value="Register" onClick={this.onRegisterClick}/>
                       </form>
-                      {/* <input onClick={this._onRegister}>Login</button> */}
-                      {/* <button onClick={this._onRegister}>Register</button> */}
                     </div>
                     : 
                     null
@@ -182,7 +180,6 @@ class App extends Component {
                     }
              </div>
         </main>
-
       <footer>
       </footer>
       </div>
