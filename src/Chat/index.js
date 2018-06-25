@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
+// import Moment from 'react-moment';
+// import 'moment-timezone';
 import "./style.css"
 
 class Chat extends Component {
@@ -28,7 +30,7 @@ class Chat extends Component {
         // Change state for new messages to be added to the page/array from all sources/clients.
         const addMessage = (data) => {
             console.log(data);
-            // The .... is a spread that allows new messages to be inserted into the message array.
+            // The ... is a spread that allows new messages to be inserted into the message array.
             this.setState({ messages: [...this.state.messages, data] });
             console.log(this.state.messages)
         }
@@ -52,11 +54,12 @@ class Chat extends Component {
         }
 
         // Disable send message button if there is no input
- 
+
     }
     render() {
         return (
             <div className="chat-container">
+                <h3>Chat</h3>
                 <div className="messages-display">
                     {/* Displays messages */}
                     {this.state.messages.map(message => {
@@ -75,7 +78,7 @@ class Chat extends Component {
                             name='user_name'
                             placeholder='Enter Name here'
                             value={this.state.user_name}
-                            onChange={evt => { this.setState({ user_name: evt.target.value }) }} />
+                            onChange={evt => { this.setState({ user_name: evt.target.value }) }} required/>
                     </p>
                     <p>
                             <label htmlFor="message">Message: </label>
@@ -85,6 +88,7 @@ class Chat extends Component {
                                 placeholder='Type message here ...'
                                 value={this.state.message}
                                 onChange={this.handleChange}
+                                required
                             />
                             <button className="submit-btn" type="submit" value="Send" onClick={this.sendMessage} >➜</button>
                     </p>

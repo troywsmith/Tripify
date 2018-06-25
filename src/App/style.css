@@ -1,3 +1,11 @@
+COLOR THEME {
+  color: rgb(204, 204, 204);
+  color: rgb(221, 221, 221);
+  color: rgb(223, 224, 223);
+  color: rgb(171, 139, 103);
+}
+
+
 body {
   margin: 0;
   padding: 0;
@@ -16,6 +24,8 @@ header {
   display: flex;
   height: 100px;
   padding: 20px;
+  margin-bottom: 10px;
+  border-bottom: 2px solid rgb(171, 139, 103);
 }
 
 .logo-div {
@@ -79,7 +89,7 @@ header {
 /* left page  */
 
 .page {
-  border: 1px solid rgb(255, 255, 255);
+  border: 1px solid rgb(223, 224, 223);
   width: 50%;
   display: flex;
   border-radius: 5px;
@@ -89,10 +99,6 @@ header {
 .chatdiv {
   height: 100%;
   width: 100%;
-}
-
-.chatdiv h3 {
-  height: 20px;
 }
 
 .chat-container {
@@ -123,27 +129,25 @@ header {
   width: 20%;
   height: 100%;
 }
-
 /* sidebar */
 
 .sidebar {
   width: 50%;
-  height: 900px;
-  background-color: rgb(171, 139, 103);
+  height: 600px;
+  background-color: inherit;
 }
 
 .tabnav {
   display: flex;
-  background-color: rgb(255, 247, 239)
+  justify-content: space-between;
+  background-color: rgb(255, 247, 239);
 }
 
 .tab {
   overflow: hidden;
   width: 50%;
-  /* border: 1px solid rgb(171, 139, 103); */
   border-width: 1px 1px 0 1px;
-  background-color: rgb(171, 139, 103);
-  color: rgb(204, 204, 204);
+  /* background-color: rgb(171, 139, 103); */
   border-radius: 15px 5px 0 0;
 }
 
@@ -155,18 +159,44 @@ header {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 18px;
-  color: rgb(223, 224, 223);
+  font-size: 14px;
+}
+
+#members-tab {
+  background-color: rgba(244, 151, 108, 1);
+}
+
+#members-tab:hover {
+  background-color: rgb(255, 109, 41);
+}
+
+#itinerary-tab {
+  background-color: rgb(246, 217, 101);
+}
+
+#itinerary-tab:hover {
+  background-color: rgb(255, 204, 0);
+}
+
+#list-tab {
+  background-color: rgba(115, 149, 174, 1);
+}
+
+#list-tab:hover {
+  background-color: rgb(41, 164, 252);
 }
 
 .tab button:hover {
-  background-color: rgb(221, 221, 221);
-  color: rgb(171, 139, 103);
-  border-color: rgb(221, 221, 221);
+  font-weight: bold;
 }
 
-.tab button.active {
+.tab button:active {
   background-color: rgb(204, 204, 204);
+}
+
+.tabcontentsection {
+  height: 100%;
+  width: 100%;
 }
 
 .tabcontent {
@@ -182,10 +212,11 @@ header {
 
 .users-list li {
   width: 33%;
+  margin: 5px;
 }
 
 .userpic {
-  width: 100%;
+  width: 75%;
   height: auto;
   border-radius: 100px;
 }
@@ -194,7 +225,6 @@ header {
 
 ul {
   list-style-type: none;
-  /* padding: 0; */
 }
 
 .activityli {
@@ -222,7 +252,7 @@ ul {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background: #eee;
+  background: rgb(238, 238, 238);
   font-size: 12px;
   transition: 0.2s;
 }

@@ -5,7 +5,7 @@
 
 /* Sub-container for submitted messages */
 .messages-display {
-  border: 2px solid rgba(171, 139, 103, 1);
+  border: 2px solid rgba(223, 224, 223, 1);;
   height: 70%;
   text-align: left;
   padding: 4px;
@@ -29,11 +29,30 @@
 /* Area for a single submitted message */
 .message-input {
   width: 75%;
-  height: 24pt;
+}
+
+p {
+  vertical-align: text-top;
+  height: 18pt;
+}
+
+label {
+  height: 18pt;
+  width: 50px;
+  vertical-align: text-top;
+}
+
+input {
+  height: 18pt;
+  font-size: 12pt;
 }
 
 .submit-btn {
-  height: 24pt;
+  height: 100%;
+}
+
+.submit-btn:hover {
+  background-color: rgba(154, 191, 255, 1);
 }
 
 ::-webkit-scrollbar {
@@ -47,8 +66,4 @@
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(171, 139, 103, 1);
   border-radius: 2px;
-}
-
-.submit-btn:hover {
-  background-color: rgba(154, 191, 255, 1);
 }

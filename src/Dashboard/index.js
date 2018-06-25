@@ -57,20 +57,18 @@ class Dashboard extends Component {
       <div className="Dashboard">
             <div className="page">
                 <div className="chatdiv">
-                    <h3>Chat</h3>
                     <Chat />
                 </div>
             </div>
-            <div className="sidebar">
-          
+            <div className="sidebar">    
               <div className="tabnav">
-                <div className="tab">
+                <div className="tab" id="members-tab">
                   <button onClick={this._onUsersClick}>Members</button>
                 </div>
-                <div className="tab">
+              <div className="tab" id="itinerary-tab">
                   <button onClick={this._onItineraryClick}>Itinerary</button>
                 </div>
-                <div className="tab">
+              <div className="tab" id="list-tab">
                   <button onClick={this._onListClick}>List</button>
                 </div>
               </div>
@@ -95,7 +93,6 @@ class Dashboard extends Component {
                   }
                 </div>
               </div>
-
             </div>
         <footer>
         </footer>

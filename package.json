@@ -10,15 +10,19 @@
     "express": "^4.16.3",
     "express-session": "^1.15.6",
     "method-override": "^2.3.10",
+    "moment": "^2.22.2",
     "nodemon": "^1.17.5",
     "pg-monitor": "^1.0.0",
     "pg-promise": "^8.4.4",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-moment": "^0.7.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
+    "react-timestamp": "^4.4.0",
     "socket.io": "^2.1.1",
-    "socket.io-client": "^2.1.1"
+    "socket.io-client": "^2.1.1",
+    "timezone": "^1.0.13"
   },
   "scripts": {
     "start": "react-scripts start",
