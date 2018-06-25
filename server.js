@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 // Import socket for chat messaging feature
-// const socket = require('socket.io');
+const socket = require('socket.io');
 const bcrypt = require('bcrypt');
 saltRounds = 10;
 
@@ -37,7 +37,7 @@ app.use(bodyParser.urlencoded({
 //   });
 // }
 
-app.get('/', (request, response) => {
+app.get('/.json', (request, response) => {
     Promise.all([
       User.all(),
       Activity.all(),
@@ -132,58 +132,7 @@ app.delete('/.json', (request, response) => {
     response.json(deleteItem)
   }) 
 });
-  //   console.log(request.params); 
-  //   let id = request.params.id;
-  //   const updatedListItem = {
-  //     id: request.body.id,
-  //     item: request.body.item 
-  //   };
-  //   console.log('update list item:', updatedListItem)
-  //   List.update(updatedListItem)
-  //     .then(listItem => {
-  //       response.json(listItem);
-  //     });
-  // });
-  
-  // Delete List Item
-  app.delete('/.json', (request, response) => {
-    const id = Number(request.params.id);
-    console.log('deleting item', id);
-    
-    List.delete(id)
-    .then(deleteItem => {
-      response.json(deleteItem)
-    }) 
-  });
-  
 
-// app.get('/users', (request, response) => {
-//   User.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
-// app.get('/activity', (request, response) => {
-//   Activity.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
-// app.get('/trip', (request, response) => {
-//   Trip.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
-// app.get('/usertrip', (request, response) => {
-//   UserTrip.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
 
 // Start the web server listening on the provided port.
 const server = app.listen(PORT, () => {
@@ -191,14 +140,14 @@ const server = app.listen(PORT, () => {
 });
 
 // Socket/Chat functions must be after app.listen
-// const io = socket(server);
+const io = socket(server);
 
-// io.on('connection', (socket) => {
-//   console.log(socket.id);
-//   socket.on('SEND_MESSAGE', (data) => {
-//     io.emit('RECEIVE_MESSAGE', data);
-//   });
-//   socket.on('disconnect', (socket) => {
-//     console.log('user disconnected')
-//   });
-// });
+io.on('connection', (socket) => {
+  console.log(socket.id);
+  socket.on('SEND_MESSAGE', (data) => {
+    io.emit('RECEIVE_MESSAGE', data);
+  });
+  socket.on('disconnect', (socket) => {
+    console.log('user disconnected')
+  });
+});
