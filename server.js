@@ -62,34 +62,6 @@ app.post('/.json', (request, response) => {
     });
 });
 
-// app.get('/users', (request, response) => {
-//   User.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
-// app.get('/activity', (request, response) => {
-//   Activity.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
-// app.get('/trip', (request, response) => {
-//   Trip.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
-// app.get('/usertrip', (request, response) => {
-//   UserTrip.all()
-//     .then(data => {
-//       response.json(data);
-//     });
-// });
-
 // Start the web server listening on the provided port.
 const server = app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);

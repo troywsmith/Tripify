@@ -84,10 +84,6 @@ main {
   width: 100%;
 }
 
-.chatdiv h3 {
-  height: 20px;
-}
-
 .chat-container {
   display: flex;
   height: 100%;
@@ -119,7 +115,7 @@ main {
 /* sidebar */
 .sidebar {
   width: 50%;
-  height: 900px;
+  height: 600px;
   background-color: inherit;
 }
 
@@ -145,7 +141,7 @@ main {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 18px;
+  font-size: 14px;
 }
 
 #members-tab {
@@ -201,7 +197,7 @@ main {
 }
 
 .userpic {
-  width: 100%;
+  width: 75%;
   height: auto;
   border-radius: 100px;
 }
@@ -233,7 +229,7 @@ ul {
   position: relative;
   padding: 12px 8px 12px 40px;
   background: rgb(238, 238, 238);
-  font-size: 18px;
+  font-size: 12px;
   transition: 0.2s;
 }
 
