@@ -55,6 +55,11 @@ app.get('/', (request, response) => {
     });
 });
 
+// Create List Item
+app.post('/.json', (request, response) => {
+  // console.log(request) 
+  const newListItem = {
+    item: request.body.item 
 
 
 
@@ -111,6 +116,29 @@ app.post('/.json', (request, response) => {
 
 // Update List Item
 app.put('/list/:id.json', (request, response) => {
+  console.log(request.params); 
+  let id = request.params.id;
+  const updatedListItem = {
+    id: request.body.id,
+    item: request.body.item 
+  };
+  console.log('update list item:', updatedListItem)
+  List.update(updatedListItem)
+    .then(listItem => {
+      response.json(listItem);
+    });
+});
+
+// Delete List Item
+app.delete('/.json', (request, response) => {
+  const id = Number(request.params.id);
+  console.log('deleting item', id);
+  
+  List.delete(id)
+  .then(deleteItem => {
+    response.json(deleteItem)
+  }) 
+});
     console.log(request.params); 
     let id = request.params.id;
     const updatedListItem = {

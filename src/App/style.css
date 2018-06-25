@@ -218,11 +218,13 @@ ul {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background: rgb(238, 238, 238);
-  font-size: 18px;
+  background: #eee;
+  font-size: 12px;
   transition: 0.2s;
 }
 
 .list-list li:nth-child(odd) {
   background: rgb(249, 249, 249);
 }
+
+

@@ -61,7 +61,7 @@ class JoinTrip extends Component {
           </form> */}
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
               <p>
-                <label for="code"></label>
+                <label htmlFor="code"></label>
                 <input
                   type="text"
                   name="code"
@@ -70,7 +70,7 @@ class JoinTrip extends Component {
                 />
               </p>
               <p>
-                <label for="pw"></label>
+                <label htmlFor="pw"></label>
                 <input
                   type="text"
                   name="pw"
@@ -79,7 +79,7 @@ class JoinTrip extends Component {
                 />
               </p>
               <p>
-                <label for="item"></label>
+                <label htmlFor="item"></label>
                 <input
                   type="text"
                   name="item"
