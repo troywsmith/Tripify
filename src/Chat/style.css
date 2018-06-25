@@ -32,12 +32,18 @@
 }
 
 p {
+  vertical-align: text-top;
   height: 28pt;
 }
 
 label {
   height: 24pt;
   width: 50px;
+  vertical-align: text-top;
+}
+
+textarea {
+  position: relative;
 }
 
 input {
