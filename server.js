@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 // Import socket for chat messaging feature
-const socket = require('socket.io');
+// const socket = require('socket.io');
 const bcrypt = require('bcrypt');
 saltRounds = 10;
 
@@ -60,7 +60,13 @@ app.post('/.json', (request, response) => {
   // console.log(request) 
   const newListItem = {
     item: request.body.item 
-
+  };
+  console.log('create list item:', newListItem)
+  List.create(newListItem)
+    .then(listItem => {
+      response.json(listItem);
+    });
+});
 
 
 // app.post('/.json', (request, response) => {
@@ -101,18 +107,6 @@ app.post('/.json', (request, response) => {
 //       });
 // });
 
-//create list item
-app.post('/.json', (request, response) => {
-  // console.log(request) 
-  const newListItem = {
-    item: request.body.item
-  };
-  console.log('create list item:', newListItem)
-  List.create(newListItem)
-    .then(listItem => {
-      response.json(listItem);
-    });
-});
 
 // Update List Item
 app.put('/list/:id.json', (request, response) => {
@@ -133,24 +127,23 @@ app.put('/list/:id.json', (request, response) => {
 app.delete('/.json', (request, response) => {
   const id = Number(request.params.id);
   console.log('deleting item', id);
-  
   List.delete(id)
   .then(deleteItem => {
     response.json(deleteItem)
   }) 
 });
-    console.log(request.params); 
-    let id = request.params.id;
-    const updatedListItem = {
-      id: request.body.id,
-      item: request.body.item 
-    };
-    console.log('update list item:', updatedListItem)
-    List.update(updatedListItem)
-      .then(listItem => {
-        response.json(listItem);
-      });
-  });
+  //   console.log(request.params); 
+  //   let id = request.params.id;
+  //   const updatedListItem = {
+  //     id: request.body.id,
+  //     item: request.body.item 
+  //   };
+  //   console.log('update list item:', updatedListItem)
+  //   List.update(updatedListItem)
+  //     .then(listItem => {
+  //       response.json(listItem);
+  //     });
+  // });
   
   // Delete List Item
   app.delete('/.json', (request, response) => {
@@ -198,14 +191,14 @@ const server = app.listen(PORT, () => {
 });
 
 // Socket/Chat functions must be after app.listen
-const io = socket(server);
+// const io = socket(server);
 
-io.on('connection', (socket) => {
-  console.log(socket.id);
-  socket.on('SEND_MESSAGE', (data) => {
-    io.emit('RECEIVE_MESSAGE', data);
-  });
-  socket.on('disconnect', (socket) => {
-    console.log('user disconnected')
-  });
-});
+// io.on('connection', (socket) => {
+//   console.log(socket.id);
+//   socket.on('SEND_MESSAGE', (data) => {
+//     io.emit('RECEIVE_MESSAGE', data);
+//   });
+//   socket.on('disconnect', (socket) => {
+//     console.log('user disconnected')
+//   });
+// });
