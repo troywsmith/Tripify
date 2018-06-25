@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
 // Import socket for chat messaging feature
 const socket = require('socket.io');
+const bcrypt = require('bcrypt');
+saltRounds = 10;
 
 // Create a new Express application (web server)
 const app = express();
@@ -23,6 +25,10 @@ const PORT = process.env.PORT || 4567;
 app.use('/static', express.static('build/static'));
 app.use(jsonParser);
 
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
 // if (process.env.NODE_ENV == "production") {
@@ -31,7 +37,7 @@ app.use(jsonParser);
 //   });
 // }
 
-app.get('/.json', (request, response) => {
+app.get('/', (request, response) => {
     Promise.all([
       User.all(),
       Activity.all(),
@@ -50,17 +56,59 @@ app.get('/.json', (request, response) => {
 });
 
 
-app.post('/.json', (request, response) => {
-  // console.log(request) 
-  const newListItem = {
-    name: request.body.name // Why not list_name? Check List Model too
-  };
-  console.log('create list item:', newListItem)
-  List.create(newListItem)
-    .then(listItem => {
-      response.json(listItem);
-    });
+
+
+// app.post('/.json', (request, response) => {
+//   // console.log(request) 
+//   const newUser = {
+//     name: request.body.name,
+//     password: request.body.password
+//   };
+//   console.log('create new user:', newUser)
+//   User.create(newUser)
+//     .then(user => {
+//       response.json(user);
+//     });
+// });
+
+app.post("/.json", (request, response) => {
+  const username = request.body.username;
+  const password = request.body.password;
+  console.log('username: ' + username);
+  console.log('password: ' + password);
+  bcrypt
+    .hash(password, saltRounds)
+    .then(hash => {
+      const newUser = {
+        username: username,
+        password_digest: hash,
+      };
+      console.log('create new user:', newUser)
+      User.create(newUser);
+      return User.create(newUser);
+    })
+    // .then(user => {
+    //   request.session.loggedIn = true;
+    //   request.session.userId = user.id;
+    // })   
+    .then(user => {
+      response.json(user);
+      });
 });
+
+
+
+// app.post('/.json', (request, response) => {
+//   // console.log(request) 
+//   const newListItem = {
+//     name: request.body.name // Why not list_name? Check List Model too
+//   };
+//   console.log('create list item:', newListItem)
+//   List.create(newListItem)
+//     .then(listItem => {
+//       response.json(listItem);
+//     });
+// });
 
 // app.get('/users', (request, response) => {
 //   User.all()
