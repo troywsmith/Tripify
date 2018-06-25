@@ -209,6 +209,10 @@ ul {
   width: 50%;
 }
 
+.list-div {
+  color: black;
+}
+
 .list-list {
   margin: 0;
   padding: 0;
