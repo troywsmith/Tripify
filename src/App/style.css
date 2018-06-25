@@ -121,7 +121,7 @@ main {
 .sidebar {
   width: 50%;
   height: 900px;
-  background-color:rgb(171, 139, 103);
+  background-color: inherit;
 }
 
 .tabnav {
@@ -134,8 +134,7 @@ main {
   overflow: hidden;
   width: 50%;
   border-width: 1px 1px 0 1px;
-  background-color: rgb(171, 139, 103);
-  color: rgb(223, 224, 223);
+  /* background-color: rgb(171, 139, 103); */
   border-radius: 15px 5px 0 0;
 }
 
@@ -148,7 +147,18 @@ main {
   padding: 14px 16px;
   transition: 0.3s;
   font-size: 18px;
-  color: rgb(223, 224, 223);
+}
+
+#members-tab {
+  background-color: rgba(244, 151, 108, 1);
+}
+
+#itinerary-tab {
+  background-color: rgba(243, 210, 80, 1);
+}
+
+#list-tab {
+  background-color: rgba(115, 149, 174, 1);
 }
 
 .tab button:hover {
@@ -159,6 +169,11 @@ main {
 
 .tab button:active {
   background-color: rgb(204, 204, 204);
+}
+
+.tabcontentsection {
+  height: 100%;
+  width: 100%;
 }
 
 .tabcontent {

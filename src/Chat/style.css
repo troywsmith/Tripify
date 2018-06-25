@@ -42,10 +42,6 @@ label {
   vertical-align: text-top;
 }
 
-textarea {
-  position: relative;
-}
-
 input {
   height: 24pt;
   font-size: 12pt;
