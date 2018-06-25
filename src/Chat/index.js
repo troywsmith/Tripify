@@ -75,7 +75,7 @@ class Chat extends Component {
                             name='user_name'
                             placeholder='Enter Name here'
                             value={this.state.user_name}
-                            onChange={evt => { this.setState({ user_name: evt.target.value }) }} />
+                            onChange={evt => { this.setState({ user_name: evt.target.value }) }} required/>
                     </p>
                     <p>
                             <label htmlFor="message">Message: </label>
@@ -85,6 +85,7 @@ class Chat extends Component {
                                 placeholder='Type message here ...'
                                 value={this.state.message}
                                 onChange={this.handleChange}
+                                required
                             />
                             <button className="submit-btn" type="submit" value="Send" onClick={this.sendMessage} >➜</button>
                     </p>
