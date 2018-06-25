@@ -12,7 +12,7 @@ Activity.find = id => {
 }
 
 Activity.create = newActivity => {
-  return db.one('INSERT INTO activities (activity_name, user_id, trip_id) VALUES ($<activity_name>, $<user_id>, $<trip_id>) RETURNING *', newActivity);
+  return db.one('INSERT INTO activities (activity_name, date, time) VALUES ($<activity_name>, $<date>, $<time>) RETURNING *', newActivity);
 }
 
 Activity.update = updateActivity => {

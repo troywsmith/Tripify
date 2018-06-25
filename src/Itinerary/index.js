@@ -84,9 +84,7 @@ class Itinerary extends Component {
           <ul className="list-list"> 
             {this.props.api.activity.map(activity => 
             <li className="activityli" key={activity.activity_id}>
-              <div className="activitydetails">
-                  <p>{activity.activity_name}: {activity.time}, {activity.date}</p>
-              </div>
+                  {activity.activity_name}: {activity.time}, {activity.date}
             </li>
             )}
           </ul>

@@ -221,11 +221,11 @@ div#List {
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(100, 100, 100, .1);
+  background: rgba(127, 127, 127, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(171, 139, 103, 1);
+  background: rgb(79, 79, 79);
   border-radius: 2px;
 }
 
@@ -253,20 +253,22 @@ ul {
 
 .activityli {
   display: flex;
-  text-align: center;
+  justify-content: center;
 }
-
+/* 
 .activitydetails {
   text-align: center;
   width: 50%;
-}
+} */
 
 /* .activity {
   width: 50%;
 } */
 
-.list-div {
+.list-display {
   color: black;
+  overflow-y: scroll;
+  max-height: 350px;
 }
 
 .list-list {

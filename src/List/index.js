@@ -68,7 +68,6 @@ class List extends Component {
   render() {
     return (
       <div className="list">
-          <div className="list-div">
           <h3>List</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
@@ -85,6 +84,7 @@ class List extends Component {
           </p>
           
         </form>
+        <div className="list-display">
           <ul className="list-list"> 
           {this.state.api.list.map(item => 
           <li key={item.list_id}>{item.item}
