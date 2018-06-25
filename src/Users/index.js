@@ -23,7 +23,9 @@ class Users extends Component {
     return (
       <div className="App">
         <div className="users-div">
-        <h2>Members</h2>
+          <div className="tab-header">
+            <h2>Members</h2>
+          </div>
         <ul className="users-list"> 
         {this.props.api.user.map(user => 
         <li key={user.user_id}>
