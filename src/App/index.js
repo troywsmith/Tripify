@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./style.css";
-import Dashboard from '../Dashboard';
-import JoinTrip from '../JoinTrip';
+import Login from '../Login';
 import Register from '../Register';
+import JoinTrip from '../JoinTrip';
+import Dashboard from '../Dashboard';
+
 
 class App extends Component {
   
@@ -10,6 +12,7 @@ class App extends Component {
     super(props);
     this.state = {
       api: [],
+      showLogin: true,
       showRegister: true,
       showJoinTrip: false,
       showDashboard: false,
@@ -92,6 +95,8 @@ class App extends Component {
               <div id="Register" className="logindiv">
                     {this.state.showRegister ? 
                     <div>
+                      <Login /> 
+                      {/* <button onClick={this._onRegister}>Login</button> */}
                       <Register /> 
                       {/* <button onClick={this._onRegister}>Register</button> */}
                     </div>

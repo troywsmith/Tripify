@@ -78,7 +78,7 @@ class Register extends Component {
     return (
       <div className="list">
           <div className="list-div">
-            <h3>Register for an account</h3>
+            <h3>Register</h3>
             <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
               <div>
                   <input
