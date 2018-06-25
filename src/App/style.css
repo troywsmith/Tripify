@@ -71,10 +71,8 @@ header {
 }
 
 /* main */
-
-/* main {
-  display: flex;
-} */
+main {
+}
 
 .joins {
   display: flex;
@@ -86,17 +84,13 @@ header {
 }
 
 /* chat page, left page  */
-.page {
+.chatdiv {
   border: 1px solid rgb(223, 224, 223);
+  height: 600px;
   width: 50%;
   display: flex;
   border-radius: 5px;
   background-color: rgb(223, 224, 223);
-}
-
-.chatdiv {
-  height: 100%;
-  width: 100%;
 }
 
 .chat-container {
@@ -105,11 +99,11 @@ header {
   width: 100%;
   flex-direction: column;
 }
-
+/* 
 .chat-window {
   height: 70%;
   width: 100%;
-}
+} */
 /* 
 .chat-form {
   width: 100%;
@@ -198,11 +192,16 @@ header {
 }
 
 .tabcontent {
+  color: rgba(0, 0, 0, 1);
   padding: 6px 12px;
   border-top: none;
   overflow-y: scroll;
   max-height: 500px;
   border-radius: 4px;
+}
+
+#Users.tabcontent {
+  background-color: rgba(244, 151, 108, 1);
 }
 
 div#Members {
