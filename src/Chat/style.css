@@ -1,12 +1,13 @@
 /* Container for entire chat area */
 .chat-container {
-  display: float;
+  color: rgba(0, 0, 0, 1);
 }
 
 /* Sub-container for submitted messages */
 .messages-display {
-  border: 2px solid rgba(223, 224, 223, 1);;
+  border: 2px solid rgba(223, 224, 223, 1);
   height: 70%;
+  max-height: 450px;
   text-align: left;
   padding: 4px;
   margin: 4px;
@@ -28,7 +29,7 @@
 
 /* Area for a single submitted message */
 .message-input {
-  width: 75%;
+  width: 70%;
 }
 
 p {
