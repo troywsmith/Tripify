@@ -1,0 +1,54 @@
+/* Container for entire chat area */
+.chat-container {
+  display: float;
+}
+
+/* Sub-container for submitted messages */
+.messages-display {
+  border: 2px solid rgba(171, 139, 103, 1);
+  height: 70%;
+  text-align: left;
+  padding: 4px;
+  margin: 4px;
+  border-radius: 7px;
+  background-color: rgba(255, 255, 255, 1);
+  overflow-y: scroll;
+}
+
+/* An individual submitted message */
+.chat-window-message {
+  font-weight: 900;
+}
+
+/* Sub-container for input area for messages */
+.chat-input {
+  text-align: left;
+  padding: 4px;
+}
+
+/* Area for a single submitted message */
+.message-input {
+  width: 75%;
+  height: 24pt;
+}
+
+.submit-btn {
+  height: 24pt;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(100, 100, 100, .1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(171, 139, 103, 1);
+  border-radius: 2px;
+}
+
+.submit-btn:hover {
+  background-color: rgba(154, 191, 255, 1);
+}

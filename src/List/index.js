@@ -3,7 +3,6 @@ import UpdateList from "../UpdateList";
 import DeleteListItem from "../DeleteListItem";
 
 class List extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
@@ -19,13 +18,11 @@ class List extends Component {
 
   componentDidMount() {
     console.log("component");
-    
     this.fetchList()
   }
 
   fetchList() {
     fetch('/.json')
-    
       .then(response => response.json())
       .then(api => this.setState({ api }))
       .catch(err => {
@@ -69,7 +66,6 @@ class List extends Component {
   }
 
   render() {
-
     return (
       <div className="list">
           <div className="list-div">
