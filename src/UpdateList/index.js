@@ -32,12 +32,24 @@ class UpdateList extends Component {
       .catch(err => {
         console.log(err);
       })
-
+      this.fetchList();
     console.log('fetch working update');
     // this.updateFetchList()
     console.log("component is mounting");
   }
 
+
+  fetchList() {
+    fetch('/.json')
+
+      .then(response => response.json())
+      .then(api => this.setState({ api }))
+      .catch(err => {
+        console.log(err);
+      })
+    console.log('fetch working');
+
+  }
   // shouldComponentUpdate() {
   //   updated: true;
   // }
@@ -84,7 +96,7 @@ class UpdateList extends Component {
         this.setState({
           updated: true,
         });
-        // this.updateFetchList()
+        this.fetchList();
       })
   }
 
