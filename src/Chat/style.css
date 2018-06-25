@@ -1,6 +1,6 @@
 /* Container for entire chat area */
 .chat-container {
-
+  color: rgba(0, 0, 0, 1);
 }
 
 /* Sub-container for submitted messages */
@@ -29,7 +29,7 @@
 
 /* Area for a single submitted message */
 .message-input {
-  width: 75%;
+  width: 70%;
 }
 
 p {
