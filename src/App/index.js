@@ -1,20 +1,56 @@
 import React, { Component } from "react";
 import "./style.css";
 import Dashboard from '../Dashboard';
-import Login from '../Login';
+import JoinTrip from '../JoinTrip';
+import Register from '../Register';
 
 class App extends Component {
-
   
   constructor(props) {
     super(props);
     this.state = {
       api: [],
-      showLogin: true,
-      showTrip: false
+      showRegister: true,
+      showJoinTrip: false,
+      showDashboard: false,
+      // name: "",
     };
+    this._onRegister = this._onRegister.bind(this);
     this._onTripClick = this._onTripClick.bind(this);
   }
+
+  // onFormChange(evt) {
+  //   const element = evt.target;
+  //   const name = element.name; //"title"
+  //   const value = element.value; //"g"
+  //   const newState = {};
+  //   newState[name] = value;
+  //   this.setState(newState);
+  // }
+
+  // onFormSubmit(evt) {
+  //   evt.preventDefault();
+  //   const newUser = {
+  //     name: this.state.name,
+  //   }
+  //   this.setState({
+  //     item: ''
+  //   });
+  //   fetch('/.json', {
+  //     method: "POST",
+  //     body: JSON.stringify(newUser),
+  //     headers: {
+  //       "Accept": "application/json",
+  //       "Content-type": "application/json"
+  //     }
+  //   }).then(response => response.json())
+  //     .then(listItem => {
+  //       this.setState({
+  //         created: true
+  //       });
+  //       this.fetchList()
+  //     })
+  // }
 
   componentDidMount() {
     fetch('/.json')
@@ -25,10 +61,17 @@ class App extends Component {
       })
   }
 
+  _onRegister() {
+    this.setState({
+      showRegister: false,
+      showJoinTrip: true,
+    });
+  }
+
   _onTripClick() {
     this.setState({
-      showTrip: true,
-      showLogin: false
+      showJoinTrip: false,
+      showDashboard: true,
     });
   }
 
@@ -45,26 +88,39 @@ class App extends Component {
         </div>
         </header>
         <main>
-            <div id="Login" className="logindiv">
-                  {this.state.showLogin ? 
-                  <div>
-                    <Login /> 
-                    <button onClick={this._onTripClick}>Join Trip</button>
-                  </div>
-                  : 
-                  null
-                  }
+            <div className="joins">
+              <div id="Register" className="logindiv">
+                    {this.state.showRegister ? 
+                    <div>
+                      <Register /> 
+                      <button onClick={this._onRegister}>Register</button>
+                    </div>
+                    : 
+                    null
+                    }
+              </div>
+              <div id="Login" className="logindiv">
+                    {this.state.showJoinTrip ? 
+                    <div>
+                      <JoinTrip /> 
+                      <button onClick={this._onTripClick}>Join Trip</button>
+                    </div>
+                    : 
+                    null
+                    }
+              </div>
             </div>
-      </main>
-      <div id="Trip" className="trip">
-                  {this.state.showTrip ?
-                  <Dashboard /> :
-                  null
-                  }
-                </div>
-        <footer>
-        </footer>
-        </div>
+            <div id="Trip" className="trip">
+                    {this.state.showDashboard ?
+                    <Dashboard /> :
+                    null
+                    }
+             </div>
+        </main>
+
+      <footer>
+      </footer>
+      </div>
     );
   }
 }

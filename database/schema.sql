@@ -14,7 +14,8 @@ DROP TABLE IF EXISTS list;
 
 CREATE TABLE users (
   user_id SERIAL PRIMARY KEY,
-  user_name TEXT NOT NULL,
+  username TEXT NOT NULL,
+  password_digest TEXT NOT NULL,
   user_img TEXT
 );
 

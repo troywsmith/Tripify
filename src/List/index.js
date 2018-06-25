@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import UpdateList from "../UpdateList";
+import DeleteListItem from "../DeleteListItem";
 
 class List extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
       api: {
         list: []
       },
-      name: "",
+      item: "",
       created: false,
     }
     this.onFormChange = this.onFormChange.bind(this);
@@ -18,13 +18,11 @@ class List extends Component {
 
   componentDidMount() {
     console.log("component");
-    
     this.fetchList()
   }
 
   fetchList() {
     fetch('/.json')
-    
       .then(response => response.json())
       .then(api => this.setState({ api }))
       .catch(err => {
@@ -46,7 +44,7 @@ class List extends Component {
   onFormSubmit(evt) {
     evt.preventDefault();
     const newListItem = {
-      name: this.state.item,
+      item: this.state.item,
     }
     this.setState({
       item: ''
@@ -68,14 +66,13 @@ class List extends Component {
   }
 
   render() {
-
     return (
       <div className="list">
           <div className="list-div">
           <h3>List</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label for="item"></label>
+              <label htmlFor="item"></label>
             <input
               type="text"
               name="item"
@@ -86,10 +83,14 @@ class List extends Component {
           <p>
             <input type="submit" value="Create Item" />
           </p>
+          
         </form>
           <ul className="list-list"> 
           {this.state.api.list.map(item => 
-          <li key={item.list_id}>{item.item}</li>
+          <li key={item.list_id}>{item.item}
+          <UpdateList id={item.list_id}/> 
+          <DeleteListItem id={item.list_id}/>
+          </li>
           )}
           </ul>
           </div>

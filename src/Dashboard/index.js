@@ -55,7 +55,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="Dashboard">
-        <main>
             <div className="page">
                 <div className="chatdiv">
                     <Chat />
@@ -95,7 +94,6 @@ class Dashboard extends Component {
                 </div>
               </div>
             </div>
-        </main>
         <footer>
         </footer>
       </div>
