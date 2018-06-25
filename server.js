@@ -37,6 +37,7 @@ app.use(bodyParser.urlencoded({
 //   });
 // }
 
+
 app.get('/.json', (request, response) => {
     Promise.all([
       User.all(),
@@ -82,30 +83,31 @@ app.post('/.json', (request, response) => {
 //     });
 // });
 
-// app.post("/.json", (request, response) => {
-//   const username = request.body.username;
-//   const password = request.body.password;
-//   console.log('username: '  username);
-//   console.log('password: '  password);
-//   bcrypt
-//     .hash(password, saltRounds)
-//     .then(hash => {
-//       const newUser = {
-//         username: username,
-//         password_digest: hash,
-//       };
-//       console.log('create new user:', newUser)
-//       User.create(newUser);
-//       return User.create(newUser);
-//     })
-//     // .then(user => {
-//     //   request.session.loggedIn = true;
-//     //   request.session.userId = user.id;
-//     // })   
-//     .then(user => {
-//       response.json(user);
-//       });
-// });
+//register user
+app.post("/register.json", (request, response) => {
+  console.log(request.body);
+  const username = request.body.username;
+  const password = request.body.password;
+  console.log('username: ' + username);
+  console.log('password: ' + password);
+  bcrypt
+    .hash(password, saltRounds)
+    .then(hash => {
+      const newUser = {
+        username: username,
+        password_digest: hash,
+      };
+      console.log('create new user:', newUser)
+      User.create(newUser);
+    })
+    // .then(user => {
+    //   request.session.loggedIn = true;
+    //   request.session.userId = user.id;
+    // })   
+    .then(user => {
+      response.json(user);
+      });
+});
 
 
 // Update List Item

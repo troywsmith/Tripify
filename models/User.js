@@ -7,7 +7,7 @@ User.all = () => {
 };
 
 User.create = user => {
-  return db.one('INSERT INTO users (username, password_digest) VALUES ($<user.username>, $<user.password_digest>) RETURNING *', user);
+  return db.one('INSERT INTO users (username, password_digest) VALUES ($<username>, $<password_digest>) RETURNING *', user);
 };
 
 module.exports = User;

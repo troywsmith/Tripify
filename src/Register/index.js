@@ -34,24 +34,18 @@ class Register extends Component {
     const elementname = element.name; //"title"
     console.log(elementname);
 
-    let username = '';
-    let password = '';
+    let un = '';
+    let pw = '';
 
     if (elementname === 'username') {
-      username = element.value; //"g"
-      console.log('username: ' + username)
-
+      un = element.value;
+      this.setState({username: un});
     } else {
-      password = element.value; //"title"
-      console.log('password: ' + password)
+      pw = element.value;
+      this.setState({password: pw});
     }    
 
-    const newState = {};
-    newState[username] = username;
-    newState[password] = password;
-
-    console.log('newState: ' + newState)
-    this.setState(newState);
+    console.log(this.state);
   }
 
   onFormSubmit(evt) {
@@ -64,7 +58,7 @@ class Register extends Component {
       username: '',
       password: ''
     });
-    fetch('/.json', {
+    fetch('/register.json', {
       method: "POST",
       body: JSON.stringify(newUser),
       headers: {
@@ -87,26 +81,22 @@ class Register extends Component {
             <h3>Register for an account</h3>
             <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
               <div>
-                <label>
                   <input
                       type="text"
                       name="username"
-                      // value={this.state.username}
+                      value={this.state.username}
                       placeholder="username"
                   />
-                </label>
               </div>
               <div>
-                <label>
                   <input
                     type="text"
                     name="password"
-                    // value={this.state.password}
+                    value={this.state.password}
                     placeholder="password"
                   />
-                </label>
               </div>
-              {/* <input type="submit" value="Register"/> */}
+              <input type="submit" value="Register"/>
             </form>
           </div>
       </div>
