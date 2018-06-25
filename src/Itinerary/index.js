@@ -14,6 +14,24 @@ class Itinerary extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
+  // Raul: Added componentDidMount & Fetch List
+
+  componentDidMount() {
+    console.log("component");
+    this.fetchList()
+  }
+
+  fetchList() {
+    fetch('/.json')
+      .then(response => response.json())
+      .then(api => this.setState({ api }))
+      .catch(err => {
+        console.log(err);
+      })
+    console.log('fetch working');
+
+  }
+
   onFormChange(evt) {
     const element = evt.target;
     const name = element.name; //"title"
@@ -42,6 +60,7 @@ class Itinerary extends Component {
         this.setState({
           created: true
         });
+        this.fetchList();
       });
   }
 
