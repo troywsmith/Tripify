@@ -23,7 +23,7 @@ body {
 header {
   display: flex;
   height: 100px;
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 10px;
   border-bottom: 2px solid rgb(171, 139, 103);
 }
@@ -49,15 +49,14 @@ header {
 
 .title {
   position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
-  font-size: 18px;
-  font-size: 12px;
+  font-size: 24pt;
   transition: 0.2s;
 }
 
 .intro {
-  font-size: 20px;
+  font-size: 16pt;
+  font-style: italic;
+  padding-left: 10px;
 }
 
 /* joinpage */
@@ -86,8 +85,7 @@ header {
   display: flex;
 }
 
-/* left page  */
-
+/* chat page, left page  */
 .page {
   border: 1px solid rgb(223, 224, 223);
   width: 50%;
@@ -109,7 +107,6 @@ header {
 }
 
 .chat-window {
-  /* border: 1px solid white; */
   height: 70%;
   width: 100%;
 }
@@ -129,8 +126,9 @@ header {
   width: 20%;
   height: 100%;
 }
-/* sidebar */
 
+
+/* sidebar. right page */
 .sidebar {
   width: 50%;
   height: 600px;
@@ -159,7 +157,7 @@ header {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 14pt;
 }
 
 #members-tab {
@@ -253,7 +251,7 @@ ul {
   position: relative;
   padding: 12px 8px 12px 40px;
   background: rgb(238, 238, 238);
-  font-size: 12px;
+  font-size: 12pt;
   transition: 0.2s;
 }
 
