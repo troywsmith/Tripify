@@ -67,6 +67,23 @@ app.get('/.json', (request, response) => {
     });
 });
 
+// Create Activity
+app.post('/newactivity.json', (request, response) => {
+  // console.log(request) 
+  const newActivity = {
+    activity_name: request.body.activity_name,
+    date: request.body.date,
+    time: request.body.time
+  };
+  console.log('Add new activity:', newActivity)
+  Activity.create(newActivity)
+    .then(activity => {
+      response.json({
+        activity: activity
+      });
+    });
+});
+
 // Create List Item
 app.post('/.json', (request, response) => {
   // console.log(request) 
@@ -104,20 +121,6 @@ app.delete('/.json', (request, response) => {
       response.json(deleteItem)
     })
 });
-
-// Create Activity
-app.post('/.json', (request, response) => {
-  // console.log(request) 
-  const newActivity = {
-    item: request.body.item
-  };
-  console.log('Add new activity:', newActivity)
-  Activity.create(newActivity)
-    .then(activity => {
-      response.json(activity);
-    });
-});
-
 
 // app.post('/.json', (request, response) => {
 //   // console.log(request) 
