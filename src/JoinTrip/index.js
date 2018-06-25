@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class Login extends Component {
+class JoinTrip extends Component {
 
   constructor(props) {
     super(props)
@@ -23,6 +23,7 @@ class Login extends Component {
 
   onFormSubmit(evt) {
     evt.preventDefault();
+    console.log('form submittied');
     const newTrip = {
       name: this.state.trip,
     }
@@ -93,4 +94,4 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default JoinTrip;

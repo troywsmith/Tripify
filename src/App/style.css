@@ -5,7 +5,7 @@ body {
   background-color: rgb(255, 247, 239);
   color: rgb(171, 139, 103);
   overflow: auto;
-  background: hw
+  /* background: hw */
 }
 
 .App {
@@ -56,7 +56,16 @@ header {
 }
 
 /* main */
-main {
+/* main {
+  display: flex;
+} */
+
+.joins {
+  display: flex;
+  flex-direction: column;
+}
+
+.Dashboard {
   display: flex;
 }
 
