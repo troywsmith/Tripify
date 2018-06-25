@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import UpdateList from "../UpdateList";
+import DeleteListItem from "../DeleteListItem";
 
 class List extends Component {
 
@@ -9,7 +10,7 @@ class List extends Component {
       api: {
         list: []
       },
-      name: "",
+      item: "",
       created: false,
     }
     this.onFormChange = this.onFormChange.bind(this);
@@ -46,7 +47,7 @@ class List extends Component {
   onFormSubmit(evt) {
     evt.preventDefault();
     const newListItem = {
-      name: this.state.item,
+      item: this.state.item,
     }
     this.setState({
       item: ''
@@ -75,7 +76,7 @@ class List extends Component {
           <h3>List</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label for="item"></label>
+              <label htmlFor="item"></label>
             <input
               type="text"
               name="item"
@@ -86,10 +87,14 @@ class List extends Component {
           <p>
             <input type="submit" value="Create Item" />
           </p>
+          
         </form>
           <ul className="list-list"> 
           {this.state.api.list.map(item => 
-          <li key={item.list_id}>{item.item}</li>
+          <li key={item.list_id}>{item.item}
+          <UpdateList id={item.list_id}/> 
+          <DeleteListItem id={item.list_id}/>
+          </li>
           )}
           </ul>
           </div>

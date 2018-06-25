@@ -60,7 +60,7 @@ class Login extends Component {
           </form> */}
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
               <p>
-                <label for="code"></label>
+                <label htmlFor="code"></label>
                 <input
                   type="text"
                   name="code"
@@ -69,7 +69,7 @@ class Login extends Component {
                 />
               </p>
               <p>
-                <label for="pw"></label>
+                <label htmlFor="pw"></label>
                 <input
                   type="text"
                   name="pw"
@@ -78,7 +78,7 @@ class Login extends Component {
                 />
               </p>
               <p>
-                <label for="item"></label>
+                <label htmlFor="item"></label>
                 <input
                   type="text"
                   name="item"

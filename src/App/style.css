@@ -33,8 +33,8 @@ header {
 }
 
 .info-div {
-    text-align: left;
-    padding-left: 50px;
+  text-align: left;
+  padding-left: 50px;
 }
 
 .title {
@@ -197,10 +197,12 @@ ul {
   position: relative;
   padding: 12px 8px 12px 40px;
   background: #eee;
-  font-size: 18px;
+  font-size: 12px;
   transition: 0.2s;
 }
 
 .list-list li:nth-child(odd) {
   background: #f9f9f9;
 }
+
+
