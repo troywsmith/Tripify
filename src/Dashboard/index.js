@@ -57,13 +57,11 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="Dashboard">
-            <div className="page">
                 <div className="chatdiv">
                     <Chat 
                     username={this.state.username}
                     tripcode={this.state.tripcode}/>
                 </div>
-            </div>
             <div className="sidebar">    
               <div className="tabnav">
                 <div className="tab" id="members-tab">
