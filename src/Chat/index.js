@@ -104,7 +104,6 @@ class Chat extends Component {
           return (
             <div className="chat-container">
               <h2> Welcome to trip {this.props.tripcode} </h2> 
-              <h3> {this.props.tripdescription} </h3> 
               <h4> Welcome, {this.props.username}! </h4> 
               <div className="messages-display"> 
                     {this.state.api.message.map(message => {

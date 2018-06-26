@@ -18,7 +18,7 @@
 
 /* An individual submitted message */
 .chat-window-message {
-  font-weight: 900;
+  margin: 5px auto;
 }
 
 /* Sub-container for input area for messages */
