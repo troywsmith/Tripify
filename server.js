@@ -82,7 +82,6 @@ app.post('/.json', (request, response) => {
 
 // Update List Item
 app.put('/list/:id.json', (request, response) => {
-  console.log(request.params);
   let id = request.params.id;
   console.log(request.params); 
   const updatedListItem = {
@@ -110,6 +109,7 @@ app.delete('/list/:id.json', (request, response) => {
     .then(deleteItem => {
       response.json(deleteItem)
     })
+  });
 });
 
 // Create Activity
