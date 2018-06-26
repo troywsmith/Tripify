@@ -27,3 +27,8 @@ INSERT INTO list (item) VALUES ('tent');
 INSERT INTO user_trip (user_id, trip_id) VALUES (1, 1);
 INSERT INTO user_trip (user_id, trip_id) VALUES (2, 1);
 INSERT INTO user_trip (user_id, trip_id) VALUES (3, 1);
+
+INSERT INTO messages (content, username) VALUES ('What should we bring?', 'Troy');
+INSERT INTO messages (content, username) VALUES ('La Croix!', 'Raul');
+INSERT INTO messages (content, username) VALUES ('NEED HOT DOGS', 'Jae');
+INSERT INTO messages (content, username) VALUES ('Great, add them to the list.', 'Troy');

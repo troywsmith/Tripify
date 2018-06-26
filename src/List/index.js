@@ -30,7 +30,6 @@ class List extends Component {
         console.log(err);
       })
        console.log('fetch working');
-
   }
 
   onFormChange(evt) {
@@ -109,7 +108,8 @@ class List extends Component {
         <div className="list-display">
           <ul className="list-list"> 
             {this.state.api.list.map((item, index) => {
-              return <li 
+              return 
+              <li 
                 key={index}> {item.item}
                 <UpdateList id={item.list_id} />
                 {/* <DeleteListItem id={item.list_id} /> */}

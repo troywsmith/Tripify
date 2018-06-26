@@ -102,15 +102,9 @@ class UpdateList extends Component {
   render() {
 
     return (
-
       <div className="UpdateListItem">
-
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-<<<<<<< HEAD
-            <label for="item"></label>
-=======
->>>>>>> 96f9126f9d718b4406cb39e03b738d4edab14a20
             <input
               type="text"
               name="item"
@@ -120,7 +114,6 @@ class UpdateList extends Component {
           <p>
             <input type="submit" value="Edit List Item ✏️" />
           </p>
-
         </form>
       </div>
 
