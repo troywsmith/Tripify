@@ -20,19 +20,19 @@ class UpdateList extends Component {
   componentDidMount() {
     let id = this.props.id;
     console.log('line 222', this.props);
-    
+
     fetch(`/list/${id}.json`)
       .then(response => response.json())
-      .then(listItem => this.setState({ 
+      .then(listItem => this.setState({
         // api: api.list, 
         id: listItem.list_id,
         item: listItem.item
       })
-    )
+      )
       .catch(err => {
         console.log(err);
       })
-      this.fetchList();
+    this.fetchList();
     console.log('fetch working update');
     // this.updateFetchList()
     console.log("component is mounting");
@@ -91,7 +91,7 @@ class UpdateList extends Component {
         "Content-type": "application/json"
       }
     }).then(response => response.json())
-      .then(updatelistItem => {
+      .then(updateListItem => {
         this.setState({
           updated: true,
         });
@@ -108,7 +108,6 @@ class UpdateList extends Component {
 
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label htmlFor="item"></label>
             <input
               type="text"
               name="item"
