@@ -59,7 +59,8 @@ class Chat extends Component {
     render() {
         return (
             <div className="chat-container">
-                <h2>Chat</h2>
+                <h2>Welcome to trip {this.props.tripcode}</h2>
+                <h3> {this.props.tripdescription} </h3>
                 {console.log('props: ' + this.props.username)}
                 <h4>Welcome, {this.props.username} !</h4>
                 <div className="messages-display">

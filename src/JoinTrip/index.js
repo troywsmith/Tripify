@@ -69,24 +69,6 @@ class JoinTrip extends Component {
                   placeholder="trip code"
                 />
               </p>
-              <p>
-                <label htmlFor="pw"></label>
-                <input
-                  type="text"
-                  name="pw"
-                  value={this.state.activity}
-                  placeholder="trip password"
-                />
-              </p>
-              <p>
-                <label htmlFor="item"></label>
-                <input
-                  type="text"
-                  name="item"
-                  value={this.state.activity}
-                  placeholder="your display name"
-                />
-              </p>
             {/* <input type="submit" value="Join Trip"/> */}
         </form>
         </div>

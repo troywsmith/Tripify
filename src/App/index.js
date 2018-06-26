@@ -13,16 +13,16 @@ class App extends Component {
       api: [],
       username: '',
       password: '',
+      tripcode: '',
       showRegisterLogin: true,
       showJoinTrip: false,
       showDashboard: false,
       created: false,
-      // name: "",
     };
-    this._onTripClick = this._onTripClick.bind(this);
     this.onFormChange = this.onFormChange.bind(this);
     this.onLoginClick = this.onLoginClick.bind(this);
     this.onRegisterClick = this.onRegisterClick.bind(this);
+    this.onTripClick = this.onTripClick.bind(this);
   }
 
   onFormChange(evt) {
@@ -33,14 +33,18 @@ class App extends Component {
 
     let un = '';
     let pw = '';
+    let tc = '';
 
     if (elementname === 'username') {
       un = element.value;
       this.setState({username: un});
-    } else {
+    } else if (elementname === 'password') {
       pw = element.value;
       this.setState({password: pw});
-    }    
+    } else if (elementname === 'tripcode') {
+      tc = element.value;
+      this.setState({tripcode: tc})
+    } 
 
     console.log(this.state);
   }
@@ -104,6 +108,13 @@ class App extends Component {
       })
   }
 
+  onTripClick() {
+    this.setState({
+      showJoinTrip: false,
+      showDashboard: true,
+    });
+  }
+
   componentDidMount() {
     fetch('/.json')
       .then(response => response.json())
@@ -111,13 +122,6 @@ class App extends Component {
       .catch(err => {
         console.log(err);
       })
-  }
-
-  _onTripClick() {
-    this.setState({
-      showJoinTrip: false,
-      showDashboard: true,
-    });
   }
 
   render() {
@@ -133,8 +137,8 @@ class App extends Component {
         </div>
         </header>
         <main>
-            <div className="joins">
-              <div id="Register" className="logindiv">
+            <div className="formsdiv">
+              <div className="formdiv">
                     {this.state.showRegisterLogin ? 
                     <div>
                       <form onChange={this.onFormChange}>
@@ -162,20 +166,32 @@ class App extends Component {
                     null
                     }
               </div>
-              <div id="Login" className="logindiv">
+              <div className="formdiv">
                     {this.state.showJoinTrip ? 
                     <div>
-                      <JoinTrip /> 
-                      <button onClick={this._onTripClick}>Join Trip</button>
+                      <form onChange={this.onFormChange}>
+                        <div>
+                          <input
+                            type="text"
+                            name="tripcode"
+                            value={this.state.tripcode}
+                            placeholder="trip code"
+                          />
+                        </div>
+                        <button onClick={this.onTripClick}>Join Trip</button>
+                      </form>
                     </div>
                     : 
                     null
                     }
               </div>
             </div>
-            <div id="Trip" className="trip">
+            <div className="dashboard">
                     {this.state.showDashboard ?
-                    <Dashboard username={this.state.username}/> :
+                    <Dashboard 
+                    username={this.state.username}
+                    tripcode={this.state.tripcode}
+                    /> :
                     null
                     }
              </div>
