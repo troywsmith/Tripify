@@ -4,7 +4,7 @@ const db = require('../database/connection');
 const Trip = {};
 
 Trip.all = () => {
-  return db.any('SELECT * FROM trips');
+  return db.any('SELECT * FROM trips ORDER BY trip_id ASC');
 }
 
 Trip.find = id => {
