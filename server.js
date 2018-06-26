@@ -17,6 +17,8 @@ const User = require('./models/User');
 const Trip = require('./models/Trip');
 const Activity = require('./models/Activity');
 const List = require('./models/List');
+const Message = require('./models/Message');
+
 
 // Set the port based on the environment variable (PORT=8080 node server.js)
 // and fallback to 4567
@@ -52,15 +54,17 @@ app.get('/.json', (request, response) => {
       User.all(),
       Activity.all(),
       Trip.all(),
-      List.all()
+      List.all(),
+      Message.all()
     ])
-    .then(([user, activity, trip, list]) => {
+    .then(([user, activity, trip, list, message]) => {
       console.log(`about to render api`)
       response.json({
         trip: trip,
         user: user,
         activity: activity,
-        list: list
+        list: list,
+        message: message
       });
     });
 });
@@ -92,6 +96,20 @@ app.post('/new_list_item.json', (request, response) => {
   List.create(newListItem)
     .then(listItem => {
       response.json(listItem);
+    });
+});
+
+// Create Message
+app.post('/new_message.json', (request, response) => {
+  // console.log(request) 
+  const newMessage = {
+    username: request.body.username,
+    content: request.body.message
+  };
+  console.log('create message:', newMessage)
+  Message.create(newMessage)
+    .then(message => {
+      response.json(message);
     });
 });
 

@@ -30,7 +30,6 @@ class List extends Component {
         console.log(err);
       })
        console.log('fetch working');
-
   }
 
   onFormChange(evt) {
