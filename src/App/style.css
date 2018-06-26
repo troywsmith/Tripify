@@ -262,6 +262,12 @@ ul {
   max-height: 350px;
 }
 
+.activity-display {
+  color: black;
+  overflow-y: scroll;
+  max-height: 350px;
+}
+
 .list-list {
   margin: 0;
   padding: 0;

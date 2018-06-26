@@ -83,7 +83,7 @@ app.post('/new_activity.json', (request, response) => {
 });
 
 // Create List Item
-app.post('/.json', (request, response) => {
+app.post('/new_list_item.json', (request, response) => {
   // console.log(request) 
   const newListItem = {
     item: request.body.item 
@@ -100,13 +100,15 @@ app.put('/list/:id.json', (request, response) => {
   let id = request.params.id;
   console.log(request.params); 
   const updatedListItem = {
-    id: request.body.id,
+    id: request.body.list_id,
     item: request.body.item
   };
   console.log('update list item:', updatedListItem)
   List.update(updatedListItem)
     .then(listItem => {
-      response.json(listItem);
+      response.json({
+        status: 'updated'
+      });
     });
 });
 

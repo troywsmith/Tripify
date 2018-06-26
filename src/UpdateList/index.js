@@ -9,7 +9,7 @@ class UpdateList extends Component {
         list: []
       },
       // id: api.list.list_id, // Set Dynamically
-      // item: "",
+      item: "",
       updated: false
     }
     console.log('constructor', this.state.api)
@@ -67,8 +67,8 @@ class UpdateList extends Component {
 
   onFormChange(evt) {
     const element = evt.target;
-    const name = element.name; //"title"
-    const value = element.value; //"g"
+    const name = element.name;
+    const value = element.value;
     const newState = {};
     newState[name] = value;
     this.setState(newState);
@@ -76,10 +76,9 @@ class UpdateList extends Component {
 
   onFormSubmit(evt) {
     evt.preventDefault();
-    const id = this.props.id
+    // const id = this.props.id
     // console.log(this.props.id)
     const updateListItem = {
-      id: id,
       item: this.state.item,
     }
     // console.log(updateListItem)
@@ -108,6 +107,10 @@ class UpdateList extends Component {
 
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
+<<<<<<< HEAD
+            <label for="item"></label>
+=======
+>>>>>>> 96f9126f9d718b4406cb39e03b738d4edab14a20
             <input
               type="text"
               name="item"

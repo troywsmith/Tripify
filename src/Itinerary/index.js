@@ -70,38 +70,40 @@ class Itinerary extends Component {
   render() {
     return (
       <div className="Itinerary">
-          <h3>Itinerary</h3>
-          <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
-            <p>
-              <label for="activity_name"></label>
-              <input
-                type="text"
-                name="activity_name"
-                value={this.state.activity}
-                placeholder="Enter new activity"
-              />
-            </p>
-            <p>
-              <label for="time"></label>
-              <input
-                type="text"
-                name="time"
-                value={this.state.time}
-                placeholder="Enter time"
-              />
-            </p>
-            <p>
-              <label for="date"></label>
-              <input
-                type="text"
-                name="date"
-                value={this.state.date}
-                placeholder="Enter new date"
-              />
-            </p>
-            <input type="submit" value="Add" />
+        <h3>Itinerary</h3>
+        <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+          <p>
+            <label for="activity_name"></label>
+            <input
+              type="text"
+              name="activity_name"
+              value={this.state.activity}
+              placeholder="Enter new activity"
+            />
+          </p>
+          <p>
+            <label for="time"></label>
+            <input
+              type="text"
+              name="time"
+              value={this.state.time}
+              placeholder="Enter time"
+            />
+          </p>
+          <p>
+            <label for="date"></label>
+            <input
+              type="text"
+              name="date"
+              value={this.state.date}
+              placeholder="Enter new date"
+            />
+          </p>
+          <input type="submit" value="Add" />
           <p> </p>
-          </form>
+        </form>
+        <div></div>
+        <div className="activity-display">
           <ul className="list-list">
             {this.state.api.activity.map(activity =>
               <li className="activityli" key={activity.activity_id}>
@@ -109,6 +111,7 @@ class Itinerary extends Component {
               </li>
             )}
           </ul>
+        </div>
       </div>
     );
   }
