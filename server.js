@@ -39,7 +39,6 @@ app.use(
   })
 );
 
-
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
 // if (process.env.NODE_ENV == "production") {
@@ -47,7 +46,6 @@ app.use(
 //     response.sendFile(path.join(__dirname, "build", "index.html"));
 //   });
 // }
-
 
 app.get('/.json', (request, response) => {
     Promise.all([
@@ -68,7 +66,7 @@ app.get('/.json', (request, response) => {
 });
 
 // Create Activity
-app.post('/newactivity.json', (request, response) => {
+app.post('/new_activity.json', (request, response) => {
   // console.log(request) 
   const newActivity = {
     activity_name: request.body.activity_name,

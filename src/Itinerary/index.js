@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+// activity
+
 
 class Itinerary extends Component {
 
@@ -6,7 +8,7 @@ class Itinerary extends Component {
     super(props)
     this.state = {
       api: {
-        activities: []
+        activity: []
       },
       activity_name: "",
       date: "",
@@ -16,8 +18,6 @@ class Itinerary extends Component {
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
-
-  // Raul: Added componentDidMount & Fetch List
 
   componentDidMount() {
     console.log("component");
@@ -51,7 +51,7 @@ class Itinerary extends Component {
       date: this.state.date,
       time: this.state.time,
     }
-    fetch('/newactivity.json', {
+    fetch('/new_activity.json', {
       method: "POST",
       body: JSON.stringify(newActivity),
       headers: {
@@ -103,7 +103,7 @@ class Itinerary extends Component {
           <p> </p>
           </form>
           <ul className="list-list">
-            {this.state.api.activities.map(activity =>
+            {this.state.api.activity.map(activity =>
               <li className="activityli" key={activity.activity_id}>
                 {activity.activity_name}: {activity.time}, {activity.date}
               </li>
