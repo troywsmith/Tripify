@@ -29,7 +29,7 @@ class Users extends Component {
         <ul className="users-list"> 
         {this.props.api.user.map(user => 
         <li key={user.user_id}>
-          <p>{user.user_name}</p>
+          <p>{user.username}</p>
           <img className="userpic" src={user.user_img}/>
         </li>
         )}
