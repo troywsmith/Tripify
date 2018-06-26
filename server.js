@@ -39,7 +39,6 @@ app.use(
   })
 );
 
-
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
 // if (process.env.NODE_ENV == "production") {
@@ -47,7 +46,6 @@ app.use(
 //     response.sendFile(path.join(__dirname, "build", "index.html"));
 //   });
 // }
-
 
 app.get('/.json', (request, response) => {
     Promise.all([
@@ -63,6 +61,23 @@ app.get('/.json', (request, response) => {
         user: user,
         activity: activity,
         list: list
+      });
+    });
+});
+
+// Create Activity
+app.post('/new_activity.json', (request, response) => {
+  // console.log(request) 
+  const newActivity = {
+    activity_name: request.body.activity_name,
+    date: request.body.date,
+    time: request.body.time
+  };
+  console.log('Add new activity:', newActivity)
+  Activity.create(newActivity)
+    .then(activity => {
+      response.json({
+        activity: activity
       });
     });
 });
@@ -111,20 +126,6 @@ app.delete('/list/:id.json', (request, response) => {
     })
   });
 });
-
-// Create Activity
-app.post('/.json', (request, response) => {
-  // console.log(request) 
-  const newActivity = {
-    item: request.body.item
-  };
-  console.log('Add new activity:', newActivity)
-  Activity.create(newActivity)
-    .then(activity => {
-      response.json(activity);
-    });
-});
-
 
 // app.post('/.json', (request, response) => {
 //   // console.log(request) 

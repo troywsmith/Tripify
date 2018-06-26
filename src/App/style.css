@@ -5,7 +5,6 @@ COLOR THEME {
   color: rgb(171, 139, 103);
 }
 
-
 body {
   margin: 0;
   padding: 0;
@@ -37,7 +36,6 @@ header {
 }
 
 .logo {
-  animation: App-logo-spin infinite 20s linear;
   height: 70px;
   margin-top: 20px;
 }
@@ -47,12 +45,6 @@ header {
   padding-left: 50px;
 }
 
-.title {
-  position: relative;
-  font-size: 24pt;
-  transition: 0.2s;
-}
-
 .intro {
   font-size: 16pt;
   font-style: italic;
@@ -60,13 +52,12 @@ header {
 }
 
 /* joinpage */
-
-.logindiv {
+.formdiv {
   width: 100%;
   text-align: center;
 }
 
-.logindiv * {
+.formdiv * {
   margin: 5px auto;
 }
 
@@ -74,7 +65,7 @@ header {
 main {
 }
 
-.joins {
+.formdivsection {
   display: flex;
   flex-direction: column;
 }
@@ -149,7 +140,6 @@ main {
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
-  transition: 0.3s;
   font-size: 14pt;
 }
 
@@ -229,24 +219,25 @@ div#List {
   border-radius: 2px;
 }
 
-/* usertab */
+/* membertab */
 .users-list {
   display: flex;
+  flex-flow: wrap;
 }
 
 .users-list li {
-  width: 33%;
+  width: 30%;
+  height: 150px;
   margin: 5px;
 }
 
 .userpic {
-  width: 75%;
+  width: 100px;
   height: auto;
   border-radius: 100px;
 }
 
 /* itinerarytab  */
-
 ul {
   list-style-type: none;
 }
@@ -282,7 +273,6 @@ ul {
   padding: 12px 8px 12px 40px;
   background: rgb(238, 238, 238);
   font-size: 12pt;
-  transition: 0.2s;
 }
 
 .list-list li:nth-child(odd) {

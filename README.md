@@ -61,8 +61,8 @@ Heroku | to deploy app
 
 ### Wireframes
 
-LANDING PAGE
-ACTIVE PAGE
+![launch](/images/launch.png)
+![dashboard](/images/dashboard.png)
 
 
 

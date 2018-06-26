@@ -1,10 +1,15 @@
 import React, { Component } from "react";
+// activity
+
 
 class Itinerary extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
+      api: {
+        activity: []
+      },
       activity_name: "",
       date: "",
       time: "",
@@ -14,14 +19,12 @@ class Itinerary extends Component {
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
 
-  // Raul: Added componentDidMount & Fetch List
-
   componentDidMount() {
     console.log("component");
-    this.fetchList()
+    this.fetchActivity()
   }
 
-  fetchList() {
+  fetchActivity() {
     fetch('/.json')
       .then(response => response.json())
       .then(api => this.setState({ api }))
@@ -34,8 +37,8 @@ class Itinerary extends Component {
 
   onFormChange(evt) {
     const element = evt.target;
-    const name = element.name; //"title"
-    const value = element.value; //"g"
+    const name = element.name;
+    const value = element.value;
     const newState = {};
     newState[name] = value;
     this.setState(newState);
@@ -48,7 +51,7 @@ class Itinerary extends Component {
       date: this.state.date,
       time: this.state.time,
     }
-    fetch('/.json', {
+    fetch('/new_activity.json', {
       method: "POST",
       body: JSON.stringify(newActivity),
       headers: {
@@ -60,55 +63,53 @@ class Itinerary extends Component {
         this.setState({
           created: true
         });
-        this.fetchList();
+        this.fetchActivity();
       });
   }
-
 
   render() {
     return (
       <div className="Itinerary">
-        <div className="list-div">
           <h3>Itinerary</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
             <p>
               <label for="activity_name"></label>
               <input
-              type="text"
-              name="activity_name"
-              value={this.state.activity}
-              placeholder="Enter new activity"
-            />
+                type="text"
+                name="activity_name"
+                value={this.state.activity}
+                placeholder="Enter new activity"
+              />
             </p>
             <p>
               <label for="time"></label>
               <input
-              type="text"
-              name="time"
-              value={this.state.time}
-              placeholder="Enter time"
-            />
+                type="text"
+                name="time"
+                value={this.state.time}
+                placeholder="Enter time"
+              />
             </p>
             <p>
               <label for="date"></label>
               <input
-              type="text"
-              name="date"
-              value={this.state.date}
-              placeholder="Enter new date"
-            />
+                type="text"
+                name="date"
+                value={this.state.date}
+                placeholder="Enter new date"
+              />
             </p>
             <input type="submit" value="Add" />
+          <p> </p>
           </form>
-          <ul className="list-list"> 
-            {this.props.api.activity.map(activity => 
-            <li className="activityli" key={activity.activity_id}>
-                  {activity.activity_name}: {activity.time}, {activity.date}
-            </li>
+          <ul className="list-list">
+            {this.state.api.activity.map(activity =>
+              <li className="activityli" key={activity.activity_id}>
+                {activity.activity_name}: {activity.time}, {activity.date}
+              </li>
             )}
           </ul>
-        </div>
-    </div>
+      </div>
     );
   }
 }
