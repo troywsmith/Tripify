@@ -8,11 +8,8 @@ class UpdateList extends Component {
       api: {
         list: []
       },
-      // id: api.list.list_id, // Set Dynamically
-      // item: "",
       updated: false
     }
-    console.log('constructor', this.state.api)
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -50,21 +47,7 @@ class UpdateList extends Component {
     console.log('fetch working');
 
   }
-  // shouldComponentUpdate() {
-  //   updated: true;
-  // }
 
-  // updateFetchList() {
-  //   let id = this.props.match.params.id;
-  //   fetch(`/list/${id}.json`)
-  //     .then(response => response.json())
-  //     .then(api => this.setState({ api }))
-  //     .catch(err => {
-  //       console.log(err);
-  //     })
-  //   console.log('fetch working update');
-
-  // }
 
   onFormChange(evt) {
     const element = evt.target;
@@ -83,6 +66,8 @@ class UpdateList extends Component {
       id: id,
       item: this.state.item,
     }
+    console.log(this.state.id);
+    
     // console.log(updateListItem)
     fetch(`/list/${this.state.id}.json`, {
       method: "PUT",
@@ -109,7 +94,6 @@ class UpdateList extends Component {
 
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label htmlFor="item"></label>
             <input
               type="text"
               name="item"

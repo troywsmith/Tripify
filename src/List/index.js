@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import UpdateList from "../UpdateList";
-import DeleteListItem from "../DeleteListItem";
 
 class List extends Component {
   constructor(props) {
@@ -11,9 +10,11 @@ class List extends Component {
       },
       item: "",
       created: false,
+      delete: false
     }
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
+    this.onFormDelete = this.onFormDelete.bind(this);
   }
 
   componentDidMount() {
@@ -65,14 +66,35 @@ class List extends Component {
       })
   }
 
+  onFormDelete(evt, id) {
+    evt.preventDefault();
+    const list = this.state.api.list;
+    // console.log(list);
+    // console.log(list[0].list_id);
+    // console.log(this.state);
+    // console.log(this.state.api.list[0].list_id);
+    // console.log('this is id:', id);
+    
+    fetch(`/list/${id}.json`, {
+      method: "DELETE",
+    })
+      .then(deletedlistItem => {
+        this.setState({
+          delete: true,
+        });
+        this.fetchList();
+      })
+  }
+
+
   render() {
+
     return (
       <div className="list">
           <div className="list-div">
           <h3>List</h3>
-          <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+          <form onChange={this.onFormChange} onSubmit={this.onFormSubmit} >
           <p>
-              <label htmlFor="item"></label>
             <input
               type="text"
               name="item"
@@ -83,15 +105,20 @@ class List extends Component {
           <p>
             <input type="submit" value="Create Item" />
           </p>
-          
-        </form>
+
+          </form>
+
           <ul className="list-list"> 
-          {this.state.api.list.map(item => 
-          <li key={item.list_id}>{item.item}
-          <UpdateList id={item.list_id}/> 
-          <DeleteListItem id={item.list_id}/>
-          </li>
-          )}
+            {this.state.api.list.map((item, index) => {
+              return <li 
+                key={index}> {item.item}
+                <UpdateList id={item.list_id} />
+                {/* <DeleteListItem id={item.list_id} /> */}
+                <p>
+                  <button type="submit" onClick={(e) => this.onFormDelete(e, item.list_id)}>Delete</button>
+                </p>
+              </li>
+            })}
           </ul>
           </div>
       </div>

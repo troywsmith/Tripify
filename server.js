@@ -110,8 +110,8 @@ app.post('/.json', (request, response) => {
 
 // Update List Item
 app.put('/list/:id.json', (request, response) => {
-  console.log(request.params); 
   let id = request.params.id;
+  console.log(request.params); 
   const updatedListItem = {
     id: request.body.id,
     item: request.body.item 
@@ -124,13 +124,17 @@ app.put('/list/:id.json', (request, response) => {
 });
 
 // Delete List Item
-app.delete('/.json', (request, response) => {
+app.delete('/list/:id.json', (request, response) => {
   const id = Number(request.params.id);
-  console.log('deleting item', id);
+  // const deletedListItem = {
+  //   id: request.body.id,
+  //   item: request.body.item 
+  // }
+  // console.log('deleting item:', deletedListItem);
   List.delete(id)
-  .then(deleteItem => {
-    response.json(deleteItem)
-  }) 
+  .then(list => {
+    response.json(list)
+  });
 });
 
 
