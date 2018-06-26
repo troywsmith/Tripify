@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Router } from "react-router-dom";
 import "./style.css";
 // import Login from '../Login';
 // import Register from '../Register';
@@ -128,13 +129,13 @@ class App extends Component {
     return (
       <div className="App">
        <header className="header">
-        <div className="logo-div">
-          <img src="http://images.clipartpanda.com/camping-tent-clipart-black-and-white-orange-tent-hi.png" className="logo" alt="logo" />
-        </div>
-        <div className="info-div">
-          <h1 className="title">Tripify</h1>
-          <p className="intro">Don't just trip, tripify</p>
-        </div>
+          <div className="logo-div">
+            <img src="http://images.clipartpanda.com/camping-tent-clipart-black-and-white-orange-tent-hi.png" className="logo" alt="logo" />
+          </div>
+          <div className="info-div">
+            <h1 className="title">Tripify</h1>
+            <p className="intro">Don't just trip, tripify</p>
+          </div>
         </header>
         <main>
             <div className="formsdiv">
@@ -196,8 +197,8 @@ class App extends Component {
                     }
              </div>
         </main>
-      <footer>
-      </footer>
+
+        <footer></footer>
       </div>
     );
   }

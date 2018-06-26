@@ -20,7 +20,7 @@ List.update = updateListItem => {
 }
 
 List.delete = id => {
-  return db.result(`DELETE FROM list WHERE list_id = $<id>`, {id: id})
+  return db.none(`DELETE FROM list WHERE list_id = $<id>`, {id: id})
 }
 
 module.exports = List;
