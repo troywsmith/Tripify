@@ -21,17 +21,21 @@ class Users extends Component {
 
   render() {
     return (
-      <div className="Users">
-            <h3>Members</h3>
-          <ul className="users-list">
-            {this.props.api.user.map(user =>
-              <li key={user.user_id}>
-                <p>{user.user_name}</p>
-                <img className="userpic" src={user.user_img} />
-              </li>
-            )}
-          </ul>
-      </div>
+      <div className="App">
+        <div className="users-div">
+          <div className="tab-header">
+            <h2>Members</h2>
+          </div>
+        <ul className="users-list"> 
+        {this.props.api.user.map(user => 
+        <li key={user.user_id}>
+          <p>{user.username}</p>
+          <img className="userpic" src={user.user_img}/>
+        </li>
+        )}
+        </ul>
+        </div>
+    </div>
     );
   }
 }
