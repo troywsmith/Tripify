@@ -76,7 +76,7 @@ class UpdateList extends Component {
 
   onFormSubmit(evt) {
     evt.preventDefault();
-    // const id = this.props.id
+    const id = this.props.id
     // console.log(this.props.id)
     const updateListItem = {
       item: this.state.item,
@@ -111,10 +111,6 @@ class UpdateList extends Component {
 
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-<<<<<<< HEAD
-            <label for="item"></label>
-=======
->>>>>>> 96f9126f9d718b4406cb39e03b738d4edab14a20
             <input
               type="text"
               name="item"
