@@ -20,19 +20,20 @@ class UpdateList extends Component {
   componentDidMount() {
     let id = this.props.id;
     console.log('line 222', this.props);
-    
+
     fetch(`/list/${id}.json`)
       .then(response => response.json())
-      .then(listItem => this.setState({ 
-        // api: api.list, 
-        id: listItem.list_id,
-        item: listItem.item
-      })
-    )
+      .then(listItem => {
+        this.setState({
+          id: listItem.list_id,
+          item: listItem.item
+        })
+      }
+      )
       .catch(err => {
         console.log(err);
       })
-      this.fetchList();
+    this.fetchList();
     console.log('fetch working update');
     // this.updateFetchList()
     console.log("component is mounting");
@@ -67,8 +68,8 @@ class UpdateList extends Component {
 
   onFormChange(evt) {
     const element = evt.target;
-    const name = element.name; //"title"
-    const value = element.value; //"g"
+    const name = element.name;
+    const value = element.value;
     const newState = {};
     newState[name] = value;
     this.setState(newState);
@@ -76,7 +77,7 @@ class UpdateList extends Component {
 
   onFormSubmit(evt) {
     evt.preventDefault();
-    const id = this.props.id
+    // const id = this.props.id
     // console.log(this.props.id)
     const updateListItem = {
       item: this.state.item,
@@ -107,7 +108,7 @@ class UpdateList extends Component {
 
         <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-            <label htmlFor="item"></label>
+            <label for="item"></label>
             <input
               type="text"
               name="item"

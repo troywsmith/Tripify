@@ -100,13 +100,15 @@ app.put('/list/:id.json', (request, response) => {
   console.log(request.params);
   let id = request.params.id;
   const updatedListItem = {
-    id: request.body.id,
+    id: request.body.list_id,
     item: request.body.item
   };
   console.log('update list item:', updatedListItem)
   List.update(updatedListItem)
     .then(listItem => {
-      response.json(listItem);
+      response.json({
+        status: 'updated'
+      });
     });
 });
 
