@@ -5,7 +5,7 @@ const User = {};
 User.all = () => {
   return db.any(`
   SELECT * 
-  FROM users`);
+  FROM users ORDER BY user_id ASC`);
 };
 
 //for login

@@ -9,7 +9,7 @@ class UpdateList extends Component {
         list: []
       },
       // id: api.list.list_id, // Set Dynamically
-      // item: "",
+      item: "",
       updated: false
     }
     console.log('constructor', this.state.api)
@@ -79,7 +79,6 @@ class UpdateList extends Component {
     const id = this.props.id
     // console.log(this.props.id)
     const updateListItem = {
-      id: id,
       item: this.state.item,
     }
     // console.log(updateListItem)

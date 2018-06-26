@@ -49,7 +49,7 @@ class List extends Component {
     this.setState({
       item: ''
     });
-    fetch('/.json', {
+    fetch('/new_list_item.json', {
       method: "POST",
       body: JSON.stringify(newListItem),
       headers: {

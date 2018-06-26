@@ -83,7 +83,7 @@ app.post('/new_activity.json', (request, response) => {
 });
 
 // Create List Item
-app.post('/.json', (request, response) => {
+app.post('/new_list_item.json', (request, response) => {
   // console.log(request) 
   const newListItem = {
     item: request.body.item 

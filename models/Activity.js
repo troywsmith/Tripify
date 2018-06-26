@@ -4,7 +4,7 @@ const db = require('../database/connection');
 const Activity = {};
 
 Activity.all = () => {
-  return db.any('SELECT * FROM activities');
+  return db.any('SELECT * FROM activities ORDER BY activity_id ASC');
 }
 
 Activity.find = id => {
