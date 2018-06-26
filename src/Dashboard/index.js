@@ -14,6 +14,7 @@ class Dashboard extends Component {
       showUsers: false,
       showList: false,
       username: this.props.username,
+      tripcode: this.props.tripcode,
     };
     this._onItineraryClick = this._onItineraryClick.bind(this);
     this._onUsersClick = this._onUsersClick.bind(this);
@@ -57,7 +58,9 @@ class Dashboard extends Component {
     return (
       <div className="Dashboard">
                 <div className="chatdiv">
-                    <Chat username ={this.state.username}/>
+                    <Chat 
+                    username={this.state.username}
+                    tripcode={this.state.tripcode}/>
                 </div>
             <div className="sidebar">    
               <div className="tabnav">

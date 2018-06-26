@@ -47,12 +47,6 @@ header {
   padding-left: 50px;
 }
 
-.title {
-  position: relative;
-  font-size: 24pt;
-  transition: 0.2s;
-}
-
 .intro {
   font-size: 16pt;
   font-style: italic;
@@ -61,12 +55,12 @@ header {
 
 /* joinpage */
 
-.logindiv {
+.formdiv {
   width: 100%;
   text-align: center;
 }
 
-.logindiv * {
+.formdiv * {
   margin: 5px auto;
 }
 
@@ -74,7 +68,7 @@ header {
 main {
 }
 
-.joins {
+.formdivsection {
   display: flex;
   flex-direction: column;
 }
