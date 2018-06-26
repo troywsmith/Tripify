@@ -101,22 +101,19 @@ class List extends Component {
             />
           </p>
           <p>
-            <input type="submit" value="Create Item" />
+            <input className="button" type="submit" value="Create Item" />
           </p>
           
         </form>
           <div className="list-display">
             <ul className="list-list"> 
               {this.state.api.list.map((item, index) => {
-                return <li className="list-items"
-                  key={index}> 
+                return 
+                <li className="list-items" key={index}> 
                   <div>{item.item}</div>
-                  
-                  <div><UpdateList id={item.list_id} /></div>
+                  <UpdateList id={item.list_id} />
                   {/* <DeleteListItem id={item.list_id} /> */}
-                  <div>
-                    <button type="submit" onClick={(e) => this.onFormDelete(e, item.list_id)}>🗑</button>
-                  </div>
+                  <button type="submit" onClick={(e) => this.onFormDelete(e, item.list_id)}>🗑</button>
                 </li>
               })}
             </ul>

@@ -124,6 +124,7 @@ class Chat extends Component {
                             value = {this.state.message}
                             required />
                         <button className = "submit-btn"
+                                className="button"
                                 type = "submit"
                                 value = "Send"
                                 onClick = {this.sendMessage}> ➜ 
