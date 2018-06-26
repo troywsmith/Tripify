@@ -47,7 +47,7 @@ class Chat extends Component {
             console.log(evt)
             // alert('MESSAGE SUBMITTED');
             this.socket.emit('SEND_MESSAGE', {
-                user_name: this.state.user_name,
+                user_name: this.props.username,
                 message: this.state.message
             })
             this.setState({ message: '' });
@@ -59,7 +59,9 @@ class Chat extends Component {
     render() {
         return (
             <div className="chat-container">
-                <h3>Chat</h3>
+                <h2>Chat</h2>
+                {console.log('props: ' + this.props.username)}
+                <h4>Welcome, {this.props.username} !</h4>
                 <div className="messages-display">
                     {/* Displays messages */}
                     {this.state.messages.map(message => {
@@ -72,13 +74,14 @@ class Chat extends Component {
                 <div className="chat-input">
                 <form onSubmit={this.handleSubmit}>
                     <p>
-                        <label for="user_name">Name: </label>
-                        <input
+                        {/* <label for="user_name">Name: </label> */}
+                        {/* <input
                             type='text'
                             name='user_name'
                             placeholder='Enter Name here'
                             value={this.state.user_name}
-                            onChange={evt => { this.setState({ user_name: evt.target.value }) }} required/>
+                            onChange={evt => { this.setState({ user_name: evt.target.value }) }} required
+                            /> */}
                     </p>
                     <p>
                             <label htmlFor="message">Message: </label>

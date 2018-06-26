@@ -81,10 +81,10 @@ class App extends Component {
       username: this.state.username,
       password: this.state.password
     }
-    this.setState({
-      username: '',
-      password: ''
-    });
+    // this.setState({
+    //   username: '',
+    //   password: ''
+    // });
     fetch('/register.json', {
       method: "POST",
       body: JSON.stringify(newUser),
@@ -175,7 +175,7 @@ class App extends Component {
             </div>
             <div id="Trip" className="trip">
                     {this.state.showDashboard ?
-                    <Dashboard /> :
+                    <Dashboard username={this.state.username}/> :
                     null
                     }
              </div>
