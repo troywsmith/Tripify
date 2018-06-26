@@ -28,7 +28,7 @@ class List extends Component {
       .catch(err => {
         console.log(err);
       })
-       console.log('fetch working');
+    console.log('fetch working');
 
   }
 
@@ -68,10 +68,10 @@ class List extends Component {
   render() {
     return (
       <div className="list">
-          <h3>List</h3>
-          <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
+        <h3>List</h3>
+        <form onChange={this.onFormChange} onSubmit={this.onFormSubmit}>
           <p>
-              <label htmlFor="item"></label>
+            <label htmlFor="item"></label>
             <input
               type="text"
               name="item"
@@ -82,18 +82,18 @@ class List extends Component {
           <p>
             <input type="submit" value="Create Item" />
           </p>
-          
         </form>
+        <div></div>
         <div className="list-display">
-          <ul className="list-list"> 
-          {this.state.api.list.map(item => 
-          <li key={item.list_id}>{item.item}
-          <UpdateList id={item.list_id}/> 
-          <DeleteListItem id={item.list_id}/>
-          </li>
-          )}
+          <ul className="list-list">
+            {this.state.api.list.map(item =>
+              <li key={item.list_id}>{item.item}
+                <UpdateList id={item.list_id} />
+                <DeleteListItem id={item.list_id} />
+              </li>
+            )}
           </ul>
-          </div>
+        </div>
       </div>
     );
   }
