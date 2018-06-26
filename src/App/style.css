@@ -27,6 +27,13 @@ header {
   border-bottom: 2px solid rgb(171, 139, 103);
 }
 
+.button {
+  border-radius: 10px;
+  width: 100px;
+  height: 30px;
+  margin-right: 5px;
+}
+
 .logo-div {
   width: 25%;
 }
@@ -285,7 +292,7 @@ ul {
   background: rgb(249, 249, 249);
 }
 
-/* .list-items {
+.list-items {
   display: flex;
   flex-flow: wrap;
-} */
+}

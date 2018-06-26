@@ -141,7 +141,7 @@ class App extends Component {
             <div className="formsdiv">
               <div className="formdiv">
                     {this.state.showRegisterLogin ? 
-                    <div>
+                    <div style={{marginTop: 50 + 'px'}}>
                       <form onChange={this.onFormChange}>
                         <div>
                           <input
@@ -153,14 +153,14 @@ class App extends Component {
                         </div>
                         <div>
                           <input
-                            type="text"
+                            type="password"
                             name="password"
                             value={this.state.password}
                             placeholder="password"
                           />
                         </div>
-                        <input type="submit" value="Login" onClick={this.onLoginClick}/>
-                        <input type="button" value="Register" onClick={this.onRegisterClick}/>
+                        <input className="button" type="submit" value="Login" onClick={this.onLoginClick}/>
+                        <input className="button" type="button" value="Register" onClick={this.onRegisterClick}/>
                       </form>
                     </div>
                     : 
@@ -169,8 +169,8 @@ class App extends Component {
               </div>
               <div className="formdiv">
                     {this.state.showJoinTrip ? 
-                    <div>
-                      <form onChange={this.onFormChange}>
+                    <div style={{marginTop: 50 + 'px'}}>
+                    <form onChange={this.onFormChange}>
                         <div>
                           <input
                             type="text"
@@ -179,7 +179,7 @@ class App extends Component {
                             placeholder="trip code"
                           />
                         </div>
-                        <button onClick={this.onTripClick}>Join Trip</button>
+                        <button className="button" onClick={this.onTripClick}>Join Trip</button>
                       </form>
                     </div>
                     : 

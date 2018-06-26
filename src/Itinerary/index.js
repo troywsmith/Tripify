@@ -99,7 +99,7 @@ class Itinerary extends Component {
               placeholder="Enter new date"
             />
           </p>
-          <input type="submit" value="Add" />
+          <input className="button" type="submit" value="Add" />
           <p> </p>
         </form>
         <div></div>
