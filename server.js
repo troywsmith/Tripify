@@ -1,7 +1,9 @@
 const express = require('express');
+const session = require("express-session");
 const path = require('path');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
+
 // Import socket for chat messaging feature
 const socket = require('socket.io');
 const bcrypt = require('bcrypt');
@@ -29,6 +31,15 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+app.use(
+  session({
+    secret: "troys super secret password",
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+
 // In production, any request that doesn't match a previous route
 // should send the front-end application, which will handle the route.
 // if (process.env.NODE_ENV == "production") {
@@ -36,6 +47,7 @@ app.use(bodyParser.urlencoded({
 //     response.sendFile(path.join(__dirname, "build", "index.html"));
 //   });
 // }
+
 
 app.get('/.json', (request, response) => {
     Promise.all([
@@ -68,53 +80,14 @@ app.post('/.json', (request, response) => {
     });
 });
 
-
-// app.post('/.json', (request, response) => {
-//   // console.log(request) 
-//   const newUser = {
-//     name: request.body.name,
-//     password: request.body.password
-//   };
-//   console.log('create new user:', newUser)
-//   User.create(newUser)
-//     .then(user => {
-//       response.json(user);
-//     });
-// });
-
-// app.post("/.json", (request, response) => {
-//   const username = request.body.username;
-//   const password = request.body.password;
-//   console.log('username: '  username);
-//   console.log('password: '  password);
-//   bcrypt
-//     .hash(password, saltRounds)
-//     .then(hash => {
-//       const newUser = {
-//         username: username,
-//         password_digest: hash,
-//       };
-//       console.log('create new user:', newUser)
-//       User.create(newUser);
-//       return User.create(newUser);
-//     })
-//     // .then(user => {
-//     //   request.session.loggedIn = true;
-//     //   request.session.userId = user.id;
-//     // })   
-//     .then(user => {
-//       response.json(user);
-//       });
-// });
-
-
 // Update List Item
 app.put('/list/:id.json', (request, response) => {
+  console.log(request.params);
   let id = request.params.id;
   console.log(request.params); 
   const updatedListItem = {
     id: request.body.id,
-    item: request.body.item 
+    item: request.body.item
   };
   console.log('update list item:', updatedListItem)
   List.update(updatedListItem)
@@ -134,6 +107,80 @@ app.delete('/list/:id.json', (request, response) => {
   List.delete(id)
   .then(list => {
     response.json(list)
+    .then(deleteItem => {
+      response.json(deleteItem)
+    })
+});
+
+// Create Activity
+app.post('/.json', (request, response) => {
+  // console.log(request) 
+  const newActivity = {
+    item: request.body.item
+  };
+  console.log('Add new activity:', newActivity)
+  Activity.create(newActivity)
+    .then(activity => {
+      response.json(activity);
+    });
+});
+
+
+// app.post('/.json', (request, response) => {
+//   // console.log(request) 
+//   const newUser = {
+//     name: request.body.name,
+//     password: request.body.password
+//   };
+//   console.log('create new user:', newUser)
+//   User.create(newUser)
+//     .then(user => {
+//       response.json(user);
+//     });
+// });
+
+//register user
+app.post("/register.json", (request, response) => {
+  const username = request.body.username;
+  const password = request.body.password;
+  console.log('username: ' + username);
+  console.log('password: ' + password);
+  bcrypt
+    .hash(password, saltRounds)
+    .then(hash => {
+      const newUser = {
+        username: username,
+        password_digest: hash,
+      };
+      console.log('create new user:', newUser)
+      User.create(newUser);
+    })
+    // .then(user => {
+    //   request.session.loggedIn = true;
+    //   request.session.userId = user.id;
+    // })   
+    .then(user => {
+      response.json(user);
+      });
+});
+
+//login user
+app.post("/login.json", (request, response) => {
+  const username = request.body.username;
+  const password = request.body.password;
+  console.log('username: ' + username);
+  console.log('password: ' + password);  
+  User.findByUsername(username)
+  .then(user => {
+    return bcrypt
+      .compare(password, user.password_digest)
+      .then(isPasswordCorrect => {
+        if (isPasswordCorrect) {
+          request.session.loggedIn = true;
+          request.session.userId = user.id;
+          return response.redirect(301, "/");
+        }
+      })
   });
 });
 

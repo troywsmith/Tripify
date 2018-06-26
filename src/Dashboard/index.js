@@ -12,7 +12,8 @@ class Dashboard extends Component {
       api: [],
       showItinerary: false,
       showUsers: false,
-      showList: false
+      showList: false,
+      username: this.props.username,
     };
     this._onItineraryClick = this._onItineraryClick.bind(this);
     this._onUsersClick = this._onUsersClick.bind(this);
@@ -55,11 +56,9 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="Dashboard">
-            <div className="page">
                 <div className="chatdiv">
-                    <Chat />
+                    <Chat username ={this.state.username}/>
                 </div>
-            </div>
             <div className="sidebar">    
               <div className="tabnav">
                 <div className="tab" id="members-tab">

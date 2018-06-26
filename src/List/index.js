@@ -91,7 +91,6 @@ class List extends Component {
 
     return (
       <div className="list">
-          <div className="list-div">
           <h3>List</h3>
           <form onChange={this.onFormChange} onSubmit={this.onFormSubmit} >
           <p>
@@ -105,9 +104,9 @@ class List extends Component {
           <p>
             <input type="submit" value="Create Item" />
           </p>
-
-          </form>
-
+          
+        </form>
+        <div className="list-display">
           <ul className="list-list"> 
             {this.state.api.list.map((item, index) => {
               return <li 

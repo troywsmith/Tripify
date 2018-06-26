@@ -38,7 +38,6 @@ class UpdateList extends Component {
 
   fetchList() {
     fetch('/.json')
-
       .then(response => response.json())
       .then(api => this.setState({ api }))
       .catch(err => {

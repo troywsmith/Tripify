@@ -23,7 +23,7 @@ body {
 header {
   display: flex;
   height: 100px;
-  padding: 20px;
+  padding: 15px;
   margin-bottom: 10px;
   border-bottom: 2px solid rgb(171, 139, 103);
 }
@@ -49,15 +49,14 @@ header {
 
 .title {
   position: relative;
-  padding: 12px 8px 12px 40px;
-  background: #eee;
-  font-size: 18px;
-  font-size: 12px;
+  font-size: 24pt;
   transition: 0.2s;
 }
 
 .intro {
-  font-size: 20px;
+  font-size: 16pt;
+  font-style: italic;
+  padding-left: 10px;
 }
 
 /* joinpage */
@@ -72,10 +71,8 @@ header {
 }
 
 /* main */
-
-/* main {
-  display: flex;
-} */
+main {
+}
 
 .joins {
   display: flex;
@@ -86,19 +83,14 @@ header {
   display: flex;
 }
 
-/* left page  */
-
-.page {
+/* chat page, left page  */
+.chatdiv {
   border: 1px solid rgb(223, 224, 223);
+  height: 600px;
   width: 50%;
   display: flex;
   border-radius: 5px;
   background-color: rgb(223, 224, 223);
-}
-
-.chatdiv {
-  height: 100%;
-  width: 100%;
 }
 
 .chat-container {
@@ -107,13 +99,12 @@ header {
   width: 100%;
   flex-direction: column;
 }
-
+/* 
 .chat-window {
-  /* border: 1px solid white; */
   height: 70%;
   width: 100%;
-}
-
+} */
+/* 
 .chat-form {
   width: 100%;
   height: 25px;
@@ -128,9 +119,9 @@ header {
 .chat-form button {
   width: 20%;
   height: 100%;
-}
-/* sidebar */
+} */
 
+/* sidebar. right page */
 .sidebar {
   width: 50%;
   height: 600px;
@@ -159,7 +150,7 @@ header {
   cursor: pointer;
   padding: 14px 16px;
   transition: 0.3s;
-  font-size: 14px;
+  font-size: 14pt;
 }
 
 #members-tab {
@@ -197,15 +188,48 @@ header {
 .tabcontentsection {
   height: 100%;
   width: 100%;
+  background-color: inherit;
 }
 
 .tabcontent {
+  color: rgba(0, 0, 0, 1);
   padding: 6px 12px;
   border-top: none;
+  overflow-y: scroll;
+  max-height: 500px;
+  border-radius: 4px;
+}
+
+#Users.tabcontent {
+  background-color: rgba(244, 151, 108, 1);
+}
+
+div#Members {
+    background-color: rgba(244, 151, 108, 1);
+}
+
+div#Itinerary {
+    background-color: rgba(246, 217, 101, 1);
+}
+
+div#List {
+    background-color: rgba(115, 149, 174, 1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(127, 127, 127, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(79, 79, 79);
+  border-radius: 2px;
 }
 
 /* usertab */
-
 .users-list {
   display: flex;
 }
@@ -229,18 +253,22 @@ ul {
 
 .activityli {
   display: flex;
+  justify-content: center;
 }
-
-.activitymoment {
+/* 
+.activitydetails {
+  text-align: center;
   width: 50%;
-}
+} */
 
-.activity {
+/* .activity {
   width: 50%;
-}
+} */
 
-.list-div {
+.list-display {
   color: black;
+  overflow-y: scroll;
+  max-height: 350px;
 }
 
 .list-list {
@@ -253,7 +281,7 @@ ul {
   position: relative;
   padding: 12px 8px 12px 40px;
   background: rgb(238, 238, 238);
-  font-size: 12px;
+  font-size: 12pt;
   transition: 0.2s;
 }
 
