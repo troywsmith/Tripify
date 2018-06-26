@@ -279,4 +279,7 @@ ul {
   background: rgb(249, 249, 249);
 }
 
-
+/* .list-items {
+  display: flex;
+  flex-flow: wrap;
+} */
