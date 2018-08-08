@@ -26,7 +26,7 @@ const PORT = process.env.PORT || 4567;
 
 // ALL APP.USE
 // Needed for Heroku
-app.use('/static', express.static('build/static'));
+app.use("/", express.static("./build/"));
 app.use(jsonParser);
 
 app.use(bodyParser.urlencoded({
@@ -41,13 +41,6 @@ app.use(
   })
 );
 
-// In production, any request that doesn't match a previous route
-// should send the front-end application, which will handle the route.
-if (process.env.NODE_ENV == "production") {
-  app.get("/*", function (request, response) {
-    response.sendFile(path.join(__dirname, "build", "index.html"));
-  });
-}
 
 app.get('/.json', (request, response) => {
   Promise.all([
@@ -213,6 +206,14 @@ app.post("/login.json", (request, response) => {
 const server = app.listen(PORT, () => {
   console.log(`Express web server listening on port ${PORT}`);
 });
+
+// In production, any request that doesn't match a previous route
+// should send the front-end application, which will handle the route.
+if (process.env.NODE_ENV == "production") {
+  app.get("/*", function (request, response) {
+    response.sendFile(path.join(__dirname, "build", "index.html"));
+  });
+}
 
 // Socket/Chat functions must be after app.listen
 const io = socket(server);

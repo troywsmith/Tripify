@@ -26,7 +26,7 @@ class List extends Component {
       .catch(err => {
         console.log(err);
       })
-    console.log('fetch working');
+    console.log('fetch working for LIST');
   }
 
   onFormChange = (evt) => {
