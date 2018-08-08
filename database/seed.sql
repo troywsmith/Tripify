@@ -1,11 +1,11 @@
 
-\c trip_schedule; 
+-- \c trip_schedule; 
 
 DELETE FROM users;
 DELETE FROM trips;
 DELETE FROM activities;
-DELETE FROM user_trip;
 DELETE FROM list;
+DELETE FROM user_trip;
 DELETE FROM messages;
 
 INSERT INTO users (username, password_digest, user_img) VALUES ('Jae', 'password', 'https://media.licdn.com/dms/image/C4E03AQGVxg-u63Xwsg/profile-displayphoto-shrink_800_800/0?e=1534982400&v=beta&t=LIfRANiTMIYQU0bzV_vXvdTICg_S0Q_93prdiItmA-E');
