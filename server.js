@@ -50,13 +50,13 @@ if (process.env.NODE_ENV == "production") {
 }
 
 app.get('/.json', (request, response) => {
-    Promise.all([
-      User.all(),
-      Activity.all(),
-      Trip.all(),
-      List.all(),
-      Message.all()
-    ])
+  Promise.all([
+    User.all(),
+    Activity.all(),
+    Trip.all(),
+    List.all(),
+    Message.all()
+  ])
     .then(([user, activity, trip, list, message]) => {
       console.log(`about to render api`)
       response.json({
@@ -71,7 +71,7 @@ app.get('/.json', (request, response) => {
 
 // Create Activity
 app.post('/new_activity.json', (request, response) => {
-  // console.log("this is the request console", request) 
+  // console.log(request)
   const newActivity = {
     activity_name: request.body.activity_name,
     date: request.body.date,
@@ -88,9 +88,9 @@ app.post('/new_activity.json', (request, response) => {
 
 // Create List Item
 app.post('/new_list_item.json', (request, response) => {
-  // console.log(request) 
+  // console.log(request)
   const newListItem = {
-    item: request.body.item 
+    item: request.body.item
   };
   console.log('create list item:', newListItem)
   List.create(newListItem)
@@ -101,7 +101,7 @@ app.post('/new_list_item.json', (request, response) => {
 
 // Create Message
 app.post('/new_message.json', (request, response) => {
-  // console.log(request) 
+  // console.log(request)
   const newMessage = {
     username: request.body.username,
     content: request.body.message
@@ -115,8 +115,11 @@ app.post('/new_message.json', (request, response) => {
 
 // Update List Item
 app.put('/list/:id.json', (request, response) => {
+  console.log(request.params);
   let id = request.params.id;
-  console.log(request.params); 
+  console.log(request.params);
+  console.log('logging ID for the update. this is request.params.id', id);
+
   const updatedListItem = {
     id: id,
     item: request.body.item
@@ -130,44 +133,25 @@ app.put('/list/:id.json', (request, response) => {
     });
 });
 
-
-// Update Activity
-// app.put('/activity/:id.json', (request, response) => {
-//   let id = request.params.id;
-//   console.log(request.params);
-//   const updatedActivity = {
-//     id: id,
-//     activity: request.body.activity
-//   };
-//   console.log('update activity:', updatedActivity)
-//   Activity.update(updatedActivity)
-//     .then(activity => {
-//       response.json({
-//         status: 'updated'
-//       });
-//     });
-// });
-
-
 // Delete List Item
 app.delete('/list/:id.json', (request, response) => {
   const id = Number(request.params.id);
   // const deletedListItem = {
   //   id: request.body.id,
-  //   item: request.body.item 
+  //   item: request.body.item
   // }
   // console.log('deleting item:', deletedListItem);
   List.delete(id)
-  .then(list => {
-    response.json(list)
-    .then(deleteItem => {
-      response.json(deleteItem)
-    })
-  });
+    .then(list => {
+      response.json(list)
+        .then(deleteItem => {
+          response.json(deleteItem)
+        })
+    });
 });
 
 // app.post('/.json', (request, response) => {
-//   // console.log(request) 
+//   // console.log(request)
 //   const newUser = {
 //     name: request.body.name,
 //     password: request.body.password
@@ -198,10 +182,10 @@ app.post("/register.json", (request, response) => {
     // .then(user => {
     //   request.session.loggedIn = true;
     //   request.session.userId = user.id;
-    // })   
+    // })
     .then(user => {
       response.json(user);
-      });
+    });
 });
 
 //login user
@@ -209,19 +193,19 @@ app.post("/login.json", (request, response) => {
   const username = request.body.username;
   const password = request.body.password;
   console.log('username: ' + username);
-  console.log('password: ' + password);  
+  console.log('password: ' + password);
   User.findByUsername(username)
-  .then(user => {
-    return bcrypt
-      .compare(password, user.password_digest)
-      .then(isPasswordCorrect => {
-        if (isPasswordCorrect) {
-          request.session.loggedIn = true;
-          request.session.userId = user.id;
-          return response.redirect(301, "/");
-        }
-      })
-  });
+    .then(user => {
+      return bcrypt
+        .compare(password, user.password_digest)
+        .then(isPasswordCorrect => {
+          if (isPasswordCorrect) {
+            request.session.loggedIn = true;
+            request.session.userId = user.id;
+            return response.redirect(301, "/");
+          }
+        })
+    });
 });
 
 
