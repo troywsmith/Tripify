@@ -111,18 +111,6 @@ export default Register;
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // import React, { Component } from "react";
 
 // class CreateMember extends Component {

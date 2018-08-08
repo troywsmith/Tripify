@@ -12,9 +12,6 @@ class List extends Component {
       created: false,
       delete: false
     }
-    this.onFormChange = this.onFormChange.bind(this);
-    this.onFormSubmit = this.onFormSubmit.bind(this);
-    this.onFormDelete = this.onFormDelete.bind(this);
   }
 
   componentDidMount() {
@@ -29,10 +26,10 @@ class List extends Component {
       .catch(err => {
         console.log(err);
       })
-       console.log('fetch working');
+    console.log('fetch working');
   }
 
-  onFormChange(evt) {
+  onFormChange = (evt) => {
     const element = evt.target;
     const name = element.name; //"title"
     const value = element.value; //"g"
@@ -41,7 +38,7 @@ class List extends Component {
     this.setState(newState);
   }
 
-  onFormSubmit(evt) {
+  onFormSubmit = (evt) => {
     evt.preventDefault();
     const newListItem = {
       item: this.state.item,
@@ -65,15 +62,27 @@ class List extends Component {
       })
   }
 
-  onFormDelete(evt, id) {
+  onUpdateList = (item, id) => {
+    fetch(`/list/${id}.json`, {
+      method: "PUT",
+      body: JSON.stringify({ item }),
+      headers: {
+        "Accept": "application/json",
+        "Content-type": "application/json"
+      }
+    })
+      .then(updateListItem => {
+        this.setState({
+          item: ''
+        });
+        this.fetchList();
+      })
+  }
+
+  onFormDelete = (evt, id) => {
     evt.preventDefault();
     const list = this.state.api.list;
-    // console.log(list);
-    // console.log(list[0].list_id);
-    // console.log(this.state);
-    // console.log(this.state.api.list[0].list_id);
-    // console.log('this is id:', id);
-    
+
     fetch(`/list/${id}.json`, {
       method: "DELETE",
     })
@@ -87,11 +96,10 @@ class List extends Component {
 
 
   render() {
-
     return (
       <div className="list">
-          <h3>List</h3>
-          <form onChange={this.onFormChange} onSubmit={this.onFormSubmit} >
+        <h3>List</h3>
+        <form onChange={this.onFormChange} onSubmit={this.onFormSubmit} >
           <p>
             <input
               type="text"
@@ -100,27 +108,28 @@ class List extends Component {
               placeholder="new item"
             />
           </p>
+
           <p>
             <input className="button" type="submit" value="Create Item" />
           </p>
-          
+
         </form>
-          <div className="list-display">
-            <ul className="list-list"> 
-              {this.state.api.list.map((item, index) => {
-                return <li className="list-items"
-                  key={index}> 
-                  <div>{item.item}</div>
-                  
-                  <div><UpdateList id={item.list_id} /></div>
-                  {/* <DeleteListItem id={item.list_id} /> */}
-                  <div>
-                    <button type="submit" onClick={(e) => this.onFormDelete(e, item.list_id)}>🗑</button>
-                  </div>
-                </li>
-              })}
-            </ul>
-          </div>
+        <div className="list-display">
+          <ul className="list-list">
+            {this.state.api.list.map((item, index) => {
+              return <li className="list-items"
+                key={index}>
+                <div>{item.item}</div>
+
+                <div><UpdateList item={item} onSubmit={this.onUpdateList} /></div>
+                {/* <DeleteListItem id={item.list_id} /> */}
+                <div>
+                  <button type="submit" onClick={(e) => this.onFormDelete(e, item.list_id)}>🗑</button>
+                </div>
+              </li>
+            })}
+          </ul>
+        </div>
       </div>
     );
   }

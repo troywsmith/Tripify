@@ -71,7 +71,7 @@ app.get('/.json', (request, response) => {
 
 // Create Activity
 app.post('/new_activity.json', (request, response) => {
-  // console.log(request) 
+  // console.log("this is the request console", request) 
   const newActivity = {
     activity_name: request.body.activity_name,
     date: request.body.date,
@@ -118,7 +118,7 @@ app.put('/list/:id.json', (request, response) => {
   let id = request.params.id;
   console.log(request.params); 
   const updatedListItem = {
-    id: request.body.list_id,
+    id: id,
     item: request.body.item
   };
   console.log('update list item:', updatedListItem)
@@ -129,6 +129,25 @@ app.put('/list/:id.json', (request, response) => {
       });
     });
 });
+
+
+// Update Activity
+// app.put('/activity/:id.json', (request, response) => {
+//   let id = request.params.id;
+//   console.log(request.params);
+//   const updatedActivity = {
+//     id: id,
+//     activity: request.body.activity
+//   };
+//   console.log('update activity:', updatedActivity)
+//   Activity.update(updatedActivity)
+//     .then(activity => {
+//       response.json({
+//         status: 'updated'
+//       });
+//     });
+// });
+
 
 // Delete List Item
 app.delete('/list/:id.json', (request, response) => {

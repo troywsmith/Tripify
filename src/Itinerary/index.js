@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-// activity
-
+// import UpdateItinerary from "../UpdateItinerary";
 
 class Itinerary extends Component {
 
@@ -8,13 +7,15 @@ class Itinerary extends Component {
     super(props)
     this.state = {
       api: {
-        activity: []
+        activity: [] // this is UNDEFINED 08/06
       },
       activity_name: "",
       date: "",
       time: "",
       created: false,
     }
+    console.log("this is the itinerary state activity log", this.state.activity);
+    
     this.onFormChange = this.onFormChange.bind(this);
     this.onFormSubmit = this.onFormSubmit.bind(this);
   }
@@ -100,7 +101,7 @@ class Itinerary extends Component {
             />
           </p>
           <input className="button" type="submit" value="Add" />
-          <p> </p>
+          {/* <p> </p> */}
         </form>
         <div></div>
         <div className="activity-display">

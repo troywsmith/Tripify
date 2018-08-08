@@ -6,6 +6,7 @@ DELETE FROM trips;
 DELETE FROM activities;
 DELETE FROM user_trip;
 DELETE FROM list;
+DELETE FROM messages;
 
 INSERT INTO users (username, password_digest, user_img) VALUES ('Jae', 'password', 'https://media.licdn.com/dms/image/C4E03AQGVxg-u63Xwsg/profile-displayphoto-shrink_800_800/0?e=1534982400&v=beta&t=LIfRANiTMIYQU0bzV_vXvdTICg_S0Q_93prdiItmA-E');
 INSERT INTO users (username, password_digest, user_img) VALUES ('Raul', 'password', 'https://media.licdn.com/dms/image/C4D03AQFBXz-wtA7uEQ/profile-displayphoto-shrink_800_800/0?e=1534982400&v=beta&t=wa4NN02XCd8CVIHPEEjV-5AA0ckiTsLARVprHSb-1e8');
@@ -30,5 +31,5 @@ INSERT INTO user_trip (user_id, trip_id) VALUES (3, 1);
 
 INSERT INTO messages (content, username) VALUES ('What should we bring?', 'Troy');
 INSERT INTO messages (content, username) VALUES ('La Croix!', 'Raul');
-INSERT INTO messages (content, username) VALUES ('NEED HOT DOGS', 'Jae');
+INSERT INTO messages (content, username) VALUES ('Hot Dogs / Burgers?', 'Jae');
 INSERT INTO messages (content, username) VALUES ('Great, add them to the list.', 'Troy');
