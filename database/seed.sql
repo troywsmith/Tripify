@@ -1,5 +1,5 @@
 
--- \c trip_schedule; 
+-- \c trip_schedule;
 
 DELETE FROM users;
 DELETE FROM trips;
@@ -16,14 +16,14 @@ INSERT INTO trips (trip_name, trip_password_digest, trip_description) VALUES ('C
 
 INSERT INTO activities (activity_name, date, time, trip_id) VALUES ('Set up camp', 'June 25th', '7PM', 1);
 INSERT INTO activities (activity_name, date, time, trip_id) VALUES ('Search for firewood', 'June 25th', '8PM', 1);
-INSERT INTO activities (activity_name, date, time, trip_id) VALUES ('Bonfire', 'June 25th', '9PM', 1);
-INSERT INTO activities (activity_name, date, time, trip_id) VALUES ('Smore', 'June 25th', '10PM', 1);
+INSERT INTO activities (activity_name, date, time, trip_id) VALUES ('Bonfire & Smores', 'June 25th', '9PM', 1);
+INSERT INTO activities (activity_name, date, time, trip_id) VALUES ('Poker', 'June 25th', '10PM', 1);
 
-INSERT INTO list (item) VALUES ('bug spray');
-INSERT INTO list (item) VALUES ('cooler');
-INSERT INTO list (item) VALUES ('snacks');
-INSERT INTO list (item) VALUES ('beer');
-INSERT INTO list (item) VALUES ('tent');
+INSERT INTO list (item) VALUES ('Bug Spray');
+INSERT INTO list (item) VALUES ('Cooler');
+INSERT INTO list (item) VALUES ('Snacks');
+INSERT INTO list (item) VALUES ('Drinks');
+INSERT INTO list (item) VALUES ('Tent');
 
 INSERT INTO user_trip (user_id, trip_id) VALUES (1, 1);
 INSERT INTO user_trip (user_id, trip_id) VALUES (2, 1);

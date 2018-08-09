@@ -20,4 +20,9 @@ Activity.update = updateActivity => {
   activity_name = $<activity_name>, user_id = $<user_id>, trip_id = $<trip_id> WHERE id = $<id>`, updateActivity);
 }
 
+Activity.delete = id => {
+  return db.none(`DELETE FROM activities WHERE activity_id = $<id>`, { id: id })
+}
+
+
 module.exports = Activity;

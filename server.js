@@ -129,11 +129,6 @@ app.put('/list/:id.json', (request, response) => {
 // Delete List Item
 app.delete('/list/:id.json', (request, response) => {
   const id = Number(request.params.id);
-  // const deletedListItem = {
-  //   id: request.body.id,
-  //   item: request.body.item
-  // }
-  // console.log('deleting item:', deletedListItem);
   List.delete(id)
     .then(list => {
       response.json(list)
@@ -143,18 +138,18 @@ app.delete('/list/:id.json', (request, response) => {
     });
 });
 
-// app.post('/.json', (request, response) => {
-//   // console.log(request)
-//   const newUser = {
-//     name: request.body.name,
-//     password: request.body.password
-//   };
-//   console.log('create new user:', newUser)
-//   User.create(newUser)
-//     .then(user => {
-//       response.json(user);
+// app.delete('/activity/:id.json', (request, response) => {
+//   const id = Number(request.params.id);
+//   Activity.delete(id)
+//     .then(activity => {
+//       response.json(activity)
+//         .then(deleteActivity => {
+//           response.json(deleteActivity)
+//         })
 //     });
 // });
+
+
 
 //register user
 app.post("/register.json", (request, response) => {
